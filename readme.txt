@@ -1,13 +1,12 @@
 === Master Post Password ===
 Contributors: coffee2code
-Donate link: http://coffee2code.com/donate
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6ARCFJ9TX3522
 Tags: post password, password, post, passworded, privacy, coffee2code
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.6
-Tested up to: 3.7.1
-Stable tag: 1.0
-Version: 1.0
+Tested up to: 3.8
+Stable tag: 1.0.1
 
 Define a master post password that works for any passworded post, while permitting the original post password to also work.
 
@@ -15,7 +14,7 @@ Define a master post password that works for any passworded post, while permitti
 
 Define a master post password that works for any passworded post, while permitting the original post password to also work.
 
-Once input for a given post, the master post password is valid for any passworded post until the site's cookies expire in the browser.
+Once the master post password has been provided by a visitor for any passworded post on the site, it applies to unlock all other passworded posts (without needing to provide the master post password again for each such post) until the site's cookies expire in the browser.
 
 There are two means by which the master post password can be defined:
 
@@ -89,11 +88,20 @@ Yes.
 
 == Changelog ==
 
+= 1.0.1 =
+* Tweak description
+* Note compatibility through WP 3.8+
+* Update copyright date (2014)
+* Change donate link
+
 = 1.0 =
 * Initial public release
 
 
 == Upgrade Notice ==
+
+= 1.0.1 =
+Trivial update: noted compatibility through WP 3.8+
 
 = 1.0 =
 Initial public release.

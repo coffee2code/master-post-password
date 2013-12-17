@@ -2,11 +2,11 @@
 /**
  * @package Master_Post_Password
  * @author Scott Reilly
- * @version 1.0
+ * @version 1.0.1
  */
 /*
 Plugin Name: Master Post Password
-Version: 1.0
+Version: 1.0.1
 Plugin URI: http://coffee2code.com/wp-plugins/master-post-password/
 Author: Scott Reilly
 Author URI: http://coffee2code.com/
@@ -15,7 +15,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Domain Path: /lang/
 Description: Define a master password that works for any passworded post. The original post password still works as well.
 
-Compatible with WordPress 3.6+ through 3.7+.
+Compatible with WordPress 3.6+ through 3.8+.
 
 =>> Read the accompanying readme.txt file for instructions and documentation.
 =>> Also, visit the plugin's homepage for additional information and updates.
@@ -23,7 +23,7 @@ Compatible with WordPress 3.6+ through 3.7+.
 */
 
 /*
-	Copyright (c) 2013 by Scott Reilly (aka coffee2code)
+	Copyright (c) 2013-2014 by Scott Reilly (aka coffee2code)
 
 	This program is free software; you can redistribute it and/or
 	modify it under the terms of the GNU General Public License
@@ -273,4 +273,3 @@ class c2c_MasterPostPassword {
 c2c_MasterPostPassword::get_instance();
 
 endif;
-
