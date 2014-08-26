@@ -1,26 +1,25 @@
 <?php
 /**
+ * Plugin Name: Master Post Password
+ * Version:     1.0.2
+ * Plugin URI:  http://coffee2code.com/wp-plugins/master-post-password/
+ * Author:      Scott Reilly
+ * Author URI:  http://coffee2code.com/
+ * License:     GPLv2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * Domain Path: /lang/
+ * Description: Define a master password that works for any passworded post. The original post password still works as well.
+ *
+ * Compatible with WordPress 3.6+ through 4.0+.
+ *
+ * =>> Read the accompanying readme.txt file for instructions and documentation.
+ * =>> Also, visit the plugin's homepage for additional information and updates.
+ * =>> Or visit: https://wordpress.org/extend/plugins/master-post-password/
+ *
  * @package Master_Post_Password
  * @author Scott Reilly
- * @version 1.0.1
+ * @version 1.0.2
  */
-/*
-Plugin Name: Master Post Password
-Version: 1.0.1
-Plugin URI: http://coffee2code.com/wp-plugins/master-post-password/
-Author: Scott Reilly
-Author URI: http://coffee2code.com/
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Domain Path: /lang/
-Description: Define a master password that works for any passworded post. The original post password still works as well.
-
-Compatible with WordPress 3.6+ through 3.8+.
-
-=>> Read the accompanying readme.txt file for instructions and documentation.
-=>> Also, visit the plugin's homepage for additional information and updates.
-=>> Or visit: http://wordpress.org/extend/plugins/master-post-password/
-*/
 
 /*
 	Copyright (c) 2013-2014 by Scott Reilly (aka coffee2code)
@@ -62,11 +61,23 @@ class c2c_MasterPostPassword {
 	static $setting_name = 'c2c_master_post_password';
 
 	/**
+	 * Returns version of the plugin.
+	 *
+	 * @since 1.0.2
+	 *
+	 * @return string
+	 */
+	public static function version() {
+		return '1.0.2';
+	}
+
+	/**
 	 * Gets singleton instance, creating it if necessary.
 	 */
 	public static function get_instance() {
-		if ( ! self::$instance )
+		if ( ! self::$instance ) {
 			self::$instance = new self;
+		}
 
 		return self::$instance;
 	}
@@ -87,8 +98,9 @@ class c2c_MasterPostPassword {
 
 		add_filter( 'the_password_form', array( $this, 'check_master_password' ) );
 
-		if ( ! defined( 'C2C_MASTER_POST_PASSWORD' ) || ! C2C_MASTER_POST_PASSWORD )
+		if ( ! defined( 'C2C_MASTER_POST_PASSWORD' ) || ! C2C_MASTER_POST_PASSWORD ) {
 			add_action( 'admin_init', array( $this, 'initialize_setting' ) );
+		}
 
 	}
 
@@ -96,8 +108,9 @@ class c2c_MasterPostPassword {
 	 * Initializes setting.
 	 */
 	public function initialize_setting() {
-		if ( ! current_user_can( 'manage_options' ) )
+		if ( ! current_user_can( 'manage_options' ) ) {
 			return;
+		}
 
 		register_setting( 'reading', self::$setting_name );
 		add_settings_field( self::$setting_name, __( 'Master Post Password', 'c2cmpp' ), array( $this, 'display_option' ), 'reading' );
@@ -123,10 +136,11 @@ class c2c_MasterPostPassword {
 	 * @return string The master post password.
 	 */
 	public static function get_master_password() {
-		if ( defined( 'C2C_MASTER_POST_PASSWORD' ) && C2C_MASTER_POST_PASSWORD )
+		if ( defined( 'C2C_MASTER_POST_PASSWORD' ) && C2C_MASTER_POST_PASSWORD ) {
 			return C2C_MASTER_POST_PASSWORD;
-		else
+		} else {
 			return get_option( self::$setting_name );
+		}
 	}
 
 	/**
@@ -138,10 +152,11 @@ class c2c_MasterPostPassword {
 	 * @return string The current master post password. Either the value of the constant (unchanged from this attempt), or the new value.
 	 */
 	public static function set_master_password( $password ) {
-		if ( defined( 'C2C_MASTER_POST_PASSWORD' ) && C2C_MASTER_POST_PASSWORD )
+		if ( defined( 'C2C_MASTER_POST_PASSWORD' ) && C2C_MASTER_POST_PASSWORD ) {
 			self::get_master_password();
-		else
+		} else {
 			update_option( self::$setting_name, $password );
+		}
 
 		return $password;
 	}
@@ -179,22 +194,25 @@ class c2c_MasterPostPassword {
 	 * @return bool True == master password provided and matches.
 	 */
 	private function post_master_password_provided() {
-		if ( ! isset( $_COOKIE[ 'wp-postpass_' . COOKIEHASH] ) )
+		if ( ! isset( $_COOKIE[ 'wp-postpass_' . COOKIEHASH ] ) ) {
 			return false;
+		}
 
 		$master_password = self::get_master_password();
 
 		// If no master password was defined, then no reason to check if it was
 		// provided.
-		if ( empty( $master_password ) )
+		if ( empty( $master_password ) ) {
 			return false;
+		}
 
 		require_once ABSPATH . 'wp-includes/class-phpass.php';
 		$hasher = new PasswordHash( 8, true );
 
 		$hash = wp_unslash( $_COOKIE[ 'wp-postpass_' . COOKIEHASH ] );
-		if ( 0 !== strpos( $hash, '$P$B' ) )
+		if ( 0 !== strpos( $hash, '$P$B' ) ) {
 			return false;
+		}
 
 		return $hasher->CheckPassword( $master_password, $hash );
 	}

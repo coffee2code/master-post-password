@@ -5,8 +5,8 @@ Tags: post password, password, post, passworded, privacy, coffee2code
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.6
-Tested up to: 3.8
-Stable tag: 1.0.1
+Tested up to: 4.0
+Stable tag: 1.0.2
 
 Define a master post password that works for any passworded post, while permitting the original post password to also work.
 
@@ -26,7 +26,7 @@ b.) Via the settings field labeled "Master Post Password" found on the `Settings
 
 If the constant is defined, it takes precedence and the settings field is *NOT* displayed.
 
-Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/master-post-password/) | [Plugin Directory Page](http://wordpress.org/plugins/master-post-password/) | [Author Homepage](http://coffee2code.com)
+Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/master-post-password/) | [Plugin Directory Page](https://wordpress.org/plugins/master-post-password/) | [Author Homepage](http://coffee2code.com)
 
 
 == Installation ==
@@ -88,6 +88,14 @@ Yes.
 
 == Changelog ==
 
+= 1.0.2 (2014-08-25) =
+* Add version() to return current plugin version
+* Minor plugin header reformatting
+* Minor code reformatting (spacing, bracing)
+* Change documentation links to wp.org to be https
+* Note compatibility through WP 4.0+
+* Add plugin icon
+
 = 1.0.1 =
 * Tweak description
 * Note compatibility through WP 3.8+
@@ -99,6 +107,9 @@ Yes.
 
 
 == Upgrade Notice ==
+
+= 1.0.2 =
+Trivial update: noted compatibility through WP 4.0+; added plugin icon.
 
 = 1.0.1 =
 Trivial update: noted compatibility through WP 3.8+
