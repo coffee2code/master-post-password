@@ -15,6 +15,14 @@ class Master_Post_Password_Test extends WP_UnitTestCase {
 		c2c_MasterPostPassword::set_master_password( '' );
 	}
 
+
+	/*
+	 *
+	 * HELPER FUNCTIONS
+	 *
+	 */
+
+
 	/**
 	 * Loads post as if in loop.
 	 *
@@ -41,12 +49,22 @@ class Master_Post_Password_Test extends WP_UnitTestCase {
 		$_COOKIE[ 'wp-postpass_' . COOKIEHASH ] = $hasher->HashPassword( wp_unslash( $password ) );
 	}
 
-	/**
+
+	/*
 	 *
 	 * Start by testing core WP handling of post passwords since there are no
 	 * existing tests for them.
 	 *
 	 */
+
+
+	function test_class_exists() {
+		$this->assertTrue( class_exists( 'c2c_MasterPostPassword' ) );
+	}
+
+	function test_version() {
+		$this->assertEquals( '1.0.3', c2c_MasterPostPassword::version() );
+	}
 
 	function test_passworded_post_returns_password_form_as_content() {
 		$post_id = $this->factory->post->create( array( 'post_password' => 'abcabc', 'post_content' => 'Protected content' ) );

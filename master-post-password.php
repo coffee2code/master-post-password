@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Master Post Password
- * Version:     1.0.2
+ * Version:     1.0.3
  * Plugin URI:  http://coffee2code.com/wp-plugins/master-post-password/
  * Author:      Scott Reilly
  * Author URI:  http://coffee2code.com/
@@ -10,7 +10,7 @@
  * Domain Path: /lang/
  * Description: Define a master password that works for any passworded post. The original post password still works as well.
  *
- * Compatible with WordPress 3.6+ through 4.0+.
+ * Compatible with WordPress 3.6+ through 4.1+.
  *
  * =>> Read the accompanying readme.txt file for instructions and documentation.
  * =>> Also, visit the plugin's homepage for additional information and updates.
@@ -18,11 +18,11 @@
  *
  * @package Master_Post_Password
  * @author Scott Reilly
- * @version 1.0.2
+ * @version 1.0.3
  */
 
 /*
-	Copyright (c) 2013-2014 by Scott Reilly (aka coffee2code)
+	Copyright (c) 2013-2015 by Scott Reilly (aka coffee2code)
 
 	This program is free software; you can redistribute it and/or
 	modify it under the terms of the GNU General Public License
@@ -68,7 +68,7 @@ class c2c_MasterPostPassword {
 	 * @return string
 	 */
 	public static function version() {
-		return '1.0.2';
+		return '1.0.3';
 	}
 
 	/**
@@ -122,7 +122,7 @@ class c2c_MasterPostPassword {
 	 * @param array $args
 	 */
 	public function display_option( $args ) {
-		echo '<input type="text" name="' . self::$setting_name . '" value="' . $this->get_master_password() . '"/>';
+		echo '<input type="text" name="' . esc_attr( self::$setting_name ) . '" value="' . esc_attr( $this->get_master_password() ) . '"/>';
 		echo '<p class="description">' . __( 'A password that can be used to access any passworded post.', 'c2cmpp' ) . '</p>';
 		echo '<p class="description">' . __( "<strong>NOTE:</strong> Each passworded post's original post password will continue to work as well.", 'c2cwpp' ) . '</p>';
 	}
