@@ -1,28 +1,28 @@
 <?php
 /**
  * Plugin Name: Master Post Password
- * Version:     1.0.3
+ * Version:     1.1
  * Plugin URI:  http://coffee2code.com/wp-plugins/master-post-password/
  * Author:      Scott Reilly
  * Author URI:  http://coffee2code.com/
+ * Text Domain: master-post-password
  * License:     GPLv2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
- * Domain Path: /lang/
- * Description: Define a master password that works for any passworded post. The original post password still works as well.
+ * Description: Define a master post password that works for any passworded post, while permitting the original post password to also work.
  *
- * Compatible with WordPress 3.6+ through 4.1+.
+ * Compatible with WordPress 3.6+ through 4.4+.
  *
  * =>> Read the accompanying readme.txt file for instructions and documentation.
  * =>> Also, visit the plugin's homepage for additional information and updates.
  * =>> Or visit: https://wordpress.org/extend/plugins/master-post-password/
  *
  * @package Master_Post_Password
- * @author Scott Reilly
- * @version 1.0.3
+ * @author  Scott Reilly
+ * @version 1.1
  */
 
 /*
-	Copyright (c) 2013-2015 by Scott Reilly (aka coffee2code)
+	Copyright (c) 2013-2016 by Scott Reilly (aka coffee2code)
 
 	This program is free software; you can redistribute it and/or
 	modify it under the terms of the GNU General Public License
@@ -68,7 +68,7 @@ class c2c_MasterPostPassword {
 	 * @return string
 	 */
 	public static function version() {
-		return '1.0.3';
+		return '1.1';
 	}
 
 	/**
@@ -93,8 +93,8 @@ class c2c_MasterPostPassword {
 	 * Initializes the plugin.
 	 */
 	public function plugins_loaded() {
-		// Load textdomain
-		load_plugin_textdomain( 'c2cmpp', false, basename( dirname( __FILE__ ) ) . DIRECTORY_SEPARATOR . 'lang' );
+		// Load textdomain.
+		load_plugin_textdomain( 'master-post-password' );
 
 		add_filter( 'the_password_form', array( $this, 'check_master_password' ) );
 
@@ -113,7 +113,7 @@ class c2c_MasterPostPassword {
 		}
 
 		register_setting( 'reading', self::$setting_name );
-		add_settings_field( self::$setting_name, __( 'Master Post Password', 'c2cmpp' ), array( $this, 'display_option' ), 'reading' );
+		add_settings_field( self::$setting_name, __( 'Master Post Password', 'master-post-password' ), array( $this, 'display_option' ), 'reading' );
 	}
 
 	/**
@@ -123,8 +123,8 @@ class c2c_MasterPostPassword {
 	 */
 	public function display_option( $args ) {
 		echo '<input type="text" name="' . esc_attr( self::$setting_name ) . '" value="' . esc_attr( $this->get_master_password() ) . '"/>';
-		echo '<p class="description">' . __( 'A password that can be used to access any passworded post.', 'c2cmpp' ) . '</p>';
-		echo '<p class="description">' . __( "<strong>NOTE:</strong> Each passworded post's original post password will continue to work as well.", 'c2cwpp' ) . '</p>';
+		echo '<p class="description">' . __( 'A password that can be used to access any passworded post.', 'master-post-password' ) . '</p>';
+		echo '<p class="description">' . __( "<strong>NOTE:</strong> Each passworded post's original post password will continue to work as well.", 'master-post-password' ) . '</p>';
 	}
 
 	/**
@@ -153,7 +153,7 @@ class c2c_MasterPostPassword {
 	 */
 	public static function set_master_password( $password ) {
 		if ( defined( 'C2C_MASTER_POST_PASSWORD' ) && C2C_MASTER_POST_PASSWORD ) {
-			self::get_master_password();
+			$password = self::get_master_password();
 		} else {
 			update_option( self::$setting_name, $password );
 		}
@@ -165,8 +165,8 @@ class c2c_MasterPostPassword {
 	 * Checks the master password to see if the post content can be returned
 	 * instead of the password form.
 	 *
-	 * NOTE: See core #XXX for ticket requesting the value of $post be sent
-	 * to functions hooking 'post_password_form'.
+	 * NOTE: See core #29008 for ticket requesting the value of $post be sent
+	 * to functions hooking 'the_password_form'.
 	 *
 	 * @param string $text The password form markup.
 	 * @return string The post content (if the master password matches) or the
@@ -177,7 +177,7 @@ class c2c_MasterPostPassword {
 		if ( $this->post_master_password_provided() ) {
 			// Ideally, eventually we could do the following:
 			/*
-			$post = get_post();
+			$post = get_post( $post_id ); // $post_id sent as arg
 			$post->post_password = '';
 			return get_the_content( null, false, $post );
 			*/
@@ -202,7 +202,7 @@ class c2c_MasterPostPassword {
 
 		// If no master password was defined, then no reason to check if it was
 		// provided.
-		if ( empty( $master_password ) ) {
+		if ( ! $master_password ) {
 			return false;
 		}
 

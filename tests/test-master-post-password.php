@@ -1,14 +1,16 @@
 <?php
 
+defined( 'ABSPATH' ) or die();
+
 class Master_Post_Password_Test extends WP_UnitTestCase {
 
 	private static $master_pw_via_constant = 'constantmasterpw';
 
-	function setUp() {
+	public function setUp() {
 		parent::setUp();
 	}
 
-	function tearDown() {
+	public function tearDown() {
 		wp_reset_postdata();
 		unset( $GLOBALS['_COOKIE'] );
 		parent::tearDown();
@@ -16,11 +18,11 @@ class Master_Post_Password_Test extends WP_UnitTestCase {
 	}
 
 
-	/*
-	 *
-	 * HELPER FUNCTIONS
-	 *
-	 */
+	//
+	//
+	// HELPER FUNCTIONS
+	//
+	//
 
 
 	/**
@@ -28,7 +30,7 @@ class Master_Post_Password_Test extends WP_UnitTestCase {
 	 *
 	 * @param int $post_id Post ID.
 	 */
-	function load_post( $post_id ) {
+	protected function load_post( $post_id ) {
 		global $post;
 		$post = get_post( $post_id );
 		setup_postdata( $post );
@@ -42,7 +44,7 @@ class Master_Post_Password_Test extends WP_UnitTestCase {
 	 *
 	 * @param string $password The password to set.
 	 */
-	function submit_post_password( $password ) {
+	protected function submit_post_password( $password ) {
 		global $_COOKIE;
 		require_once ABSPATH . 'wp-includes/class-phpass.php';
 		$hasher = new PasswordHash( 8, true );
@@ -58,22 +60,22 @@ class Master_Post_Password_Test extends WP_UnitTestCase {
 	 */
 
 
-	function test_class_exists() {
+	public function test_class_exists() {
 		$this->assertTrue( class_exists( 'c2c_MasterPostPassword' ) );
 	}
 
-	function test_version() {
-		$this->assertEquals( '1.0.3', c2c_MasterPostPassword::version() );
+	public function test_version() {
+		$this->assertEquals( '1.1', c2c_MasterPostPassword::version() );
 	}
 
-	function test_passworded_post_returns_password_form_as_content() {
+	public function test_passworded_post_returns_password_form_as_content() {
 		$post_id = $this->factory->post->create( array( 'post_password' => 'abcabc', 'post_content' => 'Protected content' ) );
 		$post = $this->load_post( $post_id );
 
 		$this->assertEquals( get_the_password_form( $post ), get_the_content() );
 	}
 
-	function test_providing_valid_post_password_makes_content_available() {
+	public function test_providing_valid_post_password_makes_content_available() {
 		$pw = 'abcabc';
 		$content = 'Protected content';
 
@@ -87,7 +89,7 @@ class Master_Post_Password_Test extends WP_UnitTestCase {
 		$this->assertEquals( $content, get_the_content() );
 	}
 
-	function test_providing_invalid_post_password_doesnt_make_content_available() {
+	public function test_providing_invalid_post_password_doesnt_make_content_available() {
 		$post_id = $this->factory->post->create( array( 'post_password' => 'abcabc', 'post_content' => 'Protected content' ) );
 		$post = $this->load_post( $post_id );
 
@@ -98,7 +100,7 @@ class Master_Post_Password_Test extends WP_UnitTestCase {
 		$this->assertEquals( get_the_password_form( $post ), get_the_content() );
 	}
 
-	function test_post_password_for_one_post_doesnt_allow_access_to_another_passworded_post() {
+	public function test_post_password_for_one_post_doesnt_allow_access_to_another_passworded_post() {
 		$post_pw = 'postpw';
 		$content1 = 'Protected content';
 		$content2 = 'More protected content.';
@@ -124,7 +126,7 @@ class Master_Post_Password_Test extends WP_UnitTestCase {
 		$this->assertEquals( $content2, get_the_content() );
 	}
 
-	function test_changing_post_password_invalidates_older_password() {
+	public function test_changing_post_password_invalidates_older_password() {
 		$post_pw = 'abcabc';
 		$content = 'Protected content';
 
@@ -152,7 +154,7 @@ class Master_Post_Password_Test extends WP_UnitTestCase {
 	 *
 	 */
 
-	function test_providing_valid_master_post_password_makes_content_available() {
+	public function test_providing_valid_master_post_password_makes_content_available() {
 		$master_pw = c2c_MasterPostPassword::set_master_password( 'abcabc2' );
 		$content = 'Protected content';
 
@@ -166,7 +168,7 @@ class Master_Post_Password_Test extends WP_UnitTestCase {
 		$this->assertEquals( $content, get_the_content() );
 	}
 
-	function test_providing_valid_master_post_password_makes_all_passworded_content_available() {
+	public function test_providing_valid_master_post_password_makes_all_passworded_content_available() {
 		// Run test to set up creating a post and using the master password.
 		$this->test_providing_valid_master_post_password_makes_content_available();
 
@@ -178,7 +180,7 @@ class Master_Post_Password_Test extends WP_UnitTestCase {
 		$this->assertEquals( $content, get_the_content() );
 	}
 
-	function test_providing_invalid_master_post_password_doesnt_make_content_available() {
+	public function test_providing_invalid_master_post_password_doesnt_make_content_available() {
 		$content = 'Protected content';
 
 		$post_id = $this->factory->post->create( array( 'post_password' => 'abcabc', 'post_content' => $content ) );
@@ -191,7 +193,7 @@ class Master_Post_Password_Test extends WP_UnitTestCase {
 		$this->assertEquals( get_the_password_form( $post ), get_the_content() );
 	}
 
-	function test_changing_master_post_password_invalidates_older_password() {
+	public function test_changing_master_post_password_invalidates_older_password() {
 		$master_pw = c2c_MasterPostPassword::set_master_password( 'masterpw' );
 		$content = 'Protected content';
 
@@ -209,7 +211,7 @@ class Master_Post_Password_Test extends WP_UnitTestCase {
 		$this->assertEquals( get_the_password_form( $post ), get_the_content() );
 	}
 
-	function test_master_password_usage_seemlessly_takes_over_for_change_in_post_password() {
+	public function test_master_password_usage_seemlessly_takes_over_for_change_in_post_password() {
 		$master_pw = c2c_MasterPostPassword::set_master_password( 'masterpw' );
 		$post_pw = 'postpw';
 		$content1 = 'Protected content';
@@ -242,15 +244,20 @@ class Master_Post_Password_Test extends WP_UnitTestCase {
 	 *
 	 */
 
-	function test_master_password_can_be_set_via_constant() {
+	public function test_master_password_can_be_set_via_constant() {
 		define( 'C2C_MASTER_POST_PASSWORD', self::$master_pw_via_constant );
 
 		$this->assertEquals( self::$master_pw_via_constant, c2c_MasterPostPassword::get_master_password() );
 	}
 
-	function test_master_password_set_via_constant_cannot_be_overridden() {
+	public function test_master_password_set_via_constant_cannot_be_overridden() {
 		c2c_MasterPostPassword::set_master_password( 'different_password' );
 
 		$this->assertEquals( self::$master_pw_via_constant, c2c_MasterPostPassword::get_master_password() );
 	}
+
+	public function test_set_master_password_returns_constant() {
+		$this->assertEquals( self::$master_pw_via_constant, c2c_MasterPostPassword::set_master_password( 'different_password' ) );
+	}
+
 }

@@ -5,8 +5,8 @@ Tags: post password, password, post, passworded, privacy, coffee2code
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.6
-Tested up to: 4.1
-Stable tag: 1.0.3
+Tested up to: 4.4
+Stable tag: 1.1
 
 Define a master post password that works for any passworded post, while permitting the original post password to also work.
 
@@ -51,7 +51,7 @@ Yes.
 
 = Does the explicitly set post password for a given post still work? =
 
-Yes.
+Yes. A visitor can supply either the post's password or the master post password to access the content.
 
 = Will this require a password for posts that didn't already have a post password configured? =
 
@@ -71,7 +71,7 @@ Other than the obvious (the master post password has a new value), all existing 
 
 = Is the master post password stored securely? =
 
-No. As is the case for post passwords in WordPress, the master post password is stored in the database as plaintext.
+No. As is the case for post passwords in WordPress, the master post password is stored in the database as plaintext. That is, unless the master post password is set by a constant, in which case it is never stored in the database and only in the given .php file (typically wp-config.php, where other site passwords are defined).
 
 = Why is my custom `$more_link_text` argument value to `the_content()`/`get_the_content()` being ignored for posts unlocked using the master post password? =
 
@@ -87,6 +87,19 @@ Yes.
 
 
 == Changelog ==
+
+= 1.1 (2016-03-17) =
+* Bugfix (minor): If constanct is used to set master password, ensure `set_master_password()` returns its value instead of attempted password.
+* Change: Add support for language packs:
+    * Change text domain from 'c2cmpp' to 'master-post-password'.
+    * Don't load textdomain from file.
+    * Add 'Text Domain' to plugin header.
+* New: Add LICENSE file.
+* New: Add empty index.php to prevent files from being listed if web server has enabled directory listings.
+* Change: Explicitly declare methods in unit tests as public or protected.
+* Change: Tweak description.
+* Change: Note compatibility through WP 4.4+.
+* Change: Update copyright date (2016).
 
 = 1.0.3 (2015-02-19) =
 * Escape values in some attributes for added precaution
@@ -113,6 +126,9 @@ Yes.
 
 
 == Upgrade Notice ==
+
+= 1.1 =
+Minor update: improved support for localization; verified compatibility through WP 4.4; updated copyright date (2016).
 
 = 1.0.3 =
 Trivial update: added more unit tests; noted compatibility through WP 4.1+; updated copyright date
