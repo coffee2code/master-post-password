@@ -8,11 +8,11 @@ Requires at least: 3.6
 Tested up to: 4.5
 Stable tag: 1.1
 
-Define a master post password that works for any passworded post, while permitting the original post password to also work.
+Define a master post password that works for all passworded posts, while permitting the original post passwords to also work.
 
 == Description ==
 
-Define a master post password that works for any passworded post, while permitting the original post password to also work.
+Define a master post password that works for all passworded posts, while permitting the original post passwords to also work.
 
 Once the master post password has been provided by a visitor for any passworded post on the site, it applies to unlock all other passworded posts (without needing to provide the master post password again for each such post) until the site's cookies expire in the browser.
 
@@ -90,6 +90,7 @@ Yes.
 
 = () =
 * Change: Prevent web invocation of unit test bootstrap.php.
+* Change: Tweak plugin description.
 * Change: Note compatibility through WP 4.5+.
 
 = 1.1 (2016-03-17) =

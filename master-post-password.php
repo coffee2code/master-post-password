@@ -8,7 +8,7 @@
  * Text Domain: master-post-password
  * License:     GPLv2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
- * Description: Define a master post password that works for any passworded post, while permitting the original post password to also work.
+ * Description: Define a master post password that works for all passworded posts, while permitting the original post passwords to also work.
  *
  * Compatible with WordPress 3.6+ through 4.5+.
  *
