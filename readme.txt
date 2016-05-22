@@ -5,7 +5,7 @@ Tags: post password, password, post, passworded, privacy, coffee2code
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.6
-Tested up to: 4.4
+Tested up to: 4.5
 Stable tag: 1.1
 
 Define a master post password that works for any passworded post, while permitting the original post password to also work.
@@ -87,6 +87,9 @@ Yes.
 
 
 == Changelog ==
+
+= () =
+* Change: Note compatibility through WP 4.5+.
 
 = 1.1 (2016-03-17) =
 * Bugfix (minor): If constanct is used to set master password, ensure `set_master_password()` returns its value instead of attempted password.
