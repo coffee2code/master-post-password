@@ -89,6 +89,7 @@ Yes.
 == Changelog ==
 
 = () =
+* Change: Prevent web invocation of unit test bootstrap.php.
 * Change: Note compatibility through WP 4.5+.
 
 = 1.1 (2016-03-17) =
