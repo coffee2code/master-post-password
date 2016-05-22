@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.6
 Tested up to: 4.5
-Stable tag: 1.1
+Stable tag: 1.1.1
 
 Define a master post password that works for all passworded posts, while permitting the original post passwords to also work.
 
@@ -88,7 +88,7 @@ Yes.
 
 == Changelog ==
 
-= () =
+= 1.1.1 (2016-05-22) =
 * Change: Prevent web invocation of unit test bootstrap.php.
 * Change: Tweak plugin description.
 * Change: Note compatibility through WP 4.5+.
@@ -131,6 +131,9 @@ Yes.
 
 
 == Upgrade Notice ==
+
+= 1.1.1 =
+Trivial update: verified compatibility through WP 4.5.
 
 = 1.1 =
 Minor update: improved support for localization; verified compatibility through WP 4.4; updated copyright date (2016).
