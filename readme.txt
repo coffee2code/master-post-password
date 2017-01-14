@@ -89,6 +89,7 @@ Yes.
 == Changelog ==
 
 = () =
+* Change: Sync changes with the plugin's version of `get_the_content()` with WP's version.
 * Change: Enable more error output for unit tests.
 * Change: Default `WP_TESTS_DIR` to `/tmp/wordpress-tests-lib` rather than erroring out if not defined via environment variable.
 

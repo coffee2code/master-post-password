@@ -240,8 +240,17 @@ class c2c_MasterPostPassword {
 
 		$post = get_post();
 
-		if ( null === $more_link_text )
-			$more_link_text = __( '(more&hellip;)' );
+		if ( null === $more_link_text ) {
+			$more_link_text = sprintf(
+				'<span aria-label="%1$s">%2$s</span>',
+				sprintf(
+					/* translators: %s: Name of current post */
+					__( 'Continue reading %s' ),
+					the_title_attribute( array( 'echo' => false ) )
+				),
+				__( '(more&hellip;)' )
+			);
+		}
 
 		$output = '';
 		$has_teaser = false;
@@ -275,6 +284,15 @@ class c2c_MasterPostPassword {
 				$output .= '<span id="more-' . $post->ID . '"></span>' . $content[1];
 			} else {
 				if ( ! empty( $more_link_text ) )
+
+					/**
+					 * Filters the Read More link text.
+					 *
+					 * @since 2.8.0
+					 *
+					 * @param string $more_link_element Read More link element.
+					 * @param string $more_link_text    Read More text.
+					 */
 					$output .= apply_filters( 'the_content_more_link', ' <a href="' . get_permalink() . "#more-{$post->ID}\" class=\"more-link\">$more_link_text</a>", $more_link_text );
 				$output = force_balance_tags( $output );
 			}
