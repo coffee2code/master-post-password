@@ -88,6 +88,9 @@ Yes.
 
 == Changelog ==
 
+= () =
+* Change: Default `WP_TESTS_DIR` to `/tmp/wordpress-tests-lib` rather than erroring out if not defined via environment variable.
+
 = 1.1.1 (2016-05-22) =
 * Change: Prevent web invocation of unit test bootstrap.php.
 * Change: Tweak plugin description.
