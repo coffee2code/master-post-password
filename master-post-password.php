@@ -170,22 +170,18 @@ class c2c_MasterPostPassword {
 	 *
 	 * @param string $text The password form markup.
 	 * @return string The post content (if the master password matches) or the
-	 * password form.
+	 *                password form.
 	 */
 	public function check_master_password( $text ) {
-		// If the master post password was provided, return post content
+		// If the master post password was provided, suppress password requirement
+		// and get post content.
 		if ( $this->post_master_password_provided() ) {
-			// Ideally, eventually we could do the following:
-			/*
-			$post = get_post( $post_id ); // $post_id sent as arg
-			$post->post_password = '';
-			return get_the_content( null, false, $post );
-			*/
-			return $this->get_the_content();
-		// Else return password form
-		} else {
-			return $text;
+			add_filter( 'post_password_required', '__return_false' );
+			$text = get_the_content();
+			remove_filter( 'post_password_required', '__return_false' );
 		}
+
+		return $text;
 	}
 
 	/**
@@ -215,93 +211,6 @@ class c2c_MasterPostPassword {
 		}
 
 		return $hasher->CheckPassword( $master_password, $hash );
-	}
-
-	/**
-	 * Returns the content for a post, disregarding any post password
-	 * considerations.
-	 *
-	 * NOTE: This is lame. This function is basically a copy of WP's
-	 * get_the_content() with the post_password_required() check removed.
-	 * Unfortunately, there is currently no other way to get the content
-	 * for a passworded post if the original password isn't provided.
-	 *
-	 * NOTE: Because this is being called indirectly, values for its
-	 * arguments (which match WP's get_the_content()) will not have been
-	 * passed along. Nor are they accessible. So for passworded posts
-	 * unlocked with the master password, those values will be ignored.
-	 *
-	 * @param string $more_link_text. Optional. Content for when there is more text.
-	 * @param bool   $stripteaser     Optional. Strip teaser content before the more text. Default is false.
-	 * @return string
-	 */
-	private function get_the_content( $more_link_text = null, $strip_teaser = false ) {
-		global $page, $more, $preview, $pages, $multipage;
-
-		$post = get_post();
-
-		if ( null === $more_link_text ) {
-			$more_link_text = sprintf(
-				'<span aria-label="%1$s">%2$s</span>',
-				sprintf(
-					/* translators: %s: Name of current post */
-					__( 'Continue reading %s' ),
-					the_title_attribute( array( 'echo' => false ) )
-				),
-				__( '(more&hellip;)' )
-			);
-		}
-
-		$output = '';
-		$has_teaser = false;
-
-		if ( $page > count( $pages ) ) // if the requested page doesn't exist
-			$page = count( $pages ); // give them the highest numbered page that DOES exist
-
-		$content = $pages[$page - 1];
-		if ( preg_match( '/<!--more(.*?)?-->/', $content, $matches ) ) {
-			$content = explode( $matches[0], $content, 2 );
-			if ( ! empty( $matches[1] ) && ! empty( $more_link_text ) )
-				$more_link_text = strip_tags( wp_kses_no_null( trim( $matches[1] ) ) );
-
-			$has_teaser = true;
-		} else {
-			$content = array( $content );
-		}
-
-		if ( false !== strpos( $post->post_content, '<!--noteaser-->' ) && ( ! $multipage || $page == 1 ) )
-			$strip_teaser = true;
-
-		$teaser = $content[0];
-
-		if ( $more && $strip_teaser && $has_teaser )
-			$teaser = '';
-
-		$output .= $teaser;
-
-		if ( count( $content ) > 1 ) {
-			if ( $more ) {
-				$output .= '<span id="more-' . $post->ID . '"></span>' . $content[1];
-			} else {
-				if ( ! empty( $more_link_text ) )
-
-					/**
-					 * Filters the Read More link text.
-					 *
-					 * @since 2.8.0
-					 *
-					 * @param string $more_link_element Read More link element.
-					 * @param string $more_link_text    Read More text.
-					 */
-					$output .= apply_filters( 'the_content_more_link', ' <a href="' . get_permalink() . "#more-{$post->ID}\" class=\"more-link\">$more_link_text</a>", $more_link_text );
-				$output = force_balance_tags( $output );
-			}
-		}
-
-		if ( $preview ) // preview fix for javascript bug with foreign languages
-			$output = preg_replace_callback( '/\%u([0-9A-F]{4})/', '_convert_urlencoded_to_entities', $output );
-
-		return $output;
 	}
 
 }
