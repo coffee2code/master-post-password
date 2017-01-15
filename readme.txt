@@ -31,7 +31,7 @@ Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/master-post-password/
 
 == Installation ==
 
-1. Unzip `master-post-password.zip` inside the plugins directory for your site (typically `/wp-content/plugins/`). Or install via the built-in WordPress plugin installer)
+1. Install via the built-in WordPress plugin installer. Or unzip `master-post-password.zip` inside the plugins directory for your site (typically `/wp-content/plugins/`).
 2. Activate the plugin through the 'Plugins' admin menu in WordPress
 3. Set a master post password
  a. via the 'Settings' -> 'Reading' admin menu
@@ -95,6 +95,7 @@ Yes.
 * Change: Default `WP_TESTS_DIR` to `/tmp/wordpress-tests-lib` rather than erroring out if not defined via environment variable.
 * Change: Note compatibility through WP 4.7+.
 * Change: Remove support for WordPress older than 4.7 (definitely won't work for earlier versions)
+* Change: Documentation improvements.
 * Change: Update copyright date (2017).
 
 = 1.1.1 (2016-05-22) =

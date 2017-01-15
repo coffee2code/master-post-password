@@ -48,6 +48,7 @@ class c2c_MasterPostPassword {
 	/**
 	 * The singleton instance of this class.
 	 *
+	 * @access private
 	 * @var c2c_MasterPostPassword
 	 */
 	private static $instance;
@@ -58,7 +59,7 @@ class c2c_MasterPostPassword {
 	 *
 	 * @var string
 	 */
-	static $setting_name = 'c2c_master_post_password';
+	public static $setting_name = 'c2c_master_post_password';
 
 	/**
 	 * Returns version of the plugin.
@@ -84,6 +85,8 @@ class c2c_MasterPostPassword {
 
 	/**
 	 * The constructor.
+	 *
+	 * @access private
 	 */
 	private function __construct() {
 		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ) );
@@ -165,6 +168,8 @@ class c2c_MasterPostPassword {
 	 * Checks the master password to see if the post content can be returned
 	 * instead of the password form.
 	 *
+	 * @since 1.2
+	 *
 	 * @param bool    $required Whether the user needs to supply a password. True if password has not been
 	 *                          provided or is incorrect, false if password has been supplied or is not required.
 	 * @param WP_Post $post     Post data.
@@ -181,6 +186,8 @@ class c2c_MasterPostPassword {
 
 	/**
 	 * Determines if submitted post password matches the master password.
+	 *
+	 * @access private
 	 *
 	 * @return bool True == master password provided and matches.
 	 */
