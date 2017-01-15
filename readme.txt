@@ -93,6 +93,7 @@ Yes.
 * Change: Discontinue efforts to `require_once()` for class-phpass.php, which WP is now certainly sourcing.
 * Change: Enable more error output for unit tests.
 * Change: Default `WP_TESTS_DIR` to `/tmp/wordpress-tests-lib` rather than erroring out if not defined via environment variable.
+* Change: Update copyright date (2017).
 
 = 1.1.1 (2016-05-22) =
 * Change: Prevent web invocation of unit test bootstrap.php.
