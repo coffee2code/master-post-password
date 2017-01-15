@@ -90,6 +90,7 @@ Yes.
     * Add `post_password_required()` to check if master post password has been provided, thus negating the need for the post password form
     * Remove plugin's `get_the_content()` now that WP's version permits the post password check to be suppressed
     * Remove `check_master_password()`
+* Change: Discontinue efforts to `require_once()` for class-phpass.php, which WP is now certainly sourcing.
 * Change: Enable more error output for unit tests.
 * Change: Default `WP_TESTS_DIR` to `/tmp/wordpress-tests-lib` rather than erroring out if not defined via environment variable.
 

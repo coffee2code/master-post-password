@@ -197,7 +197,6 @@ class c2c_MasterPostPassword {
 			return false;
 		}
 
-		require_once ABSPATH . 'wp-includes/class-phpass.php';
 		$hasher = new PasswordHash( 8, true );
 
 		$hash = wp_unslash( $_COOKIE[ 'wp-postpass_' . COOKIEHASH ] );

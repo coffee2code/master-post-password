@@ -46,7 +46,6 @@ class Master_Post_Password_Test extends WP_UnitTestCase {
 	 */
 	protected function submit_post_password( $password ) {
 		global $_COOKIE;
-		require_once ABSPATH . 'wp-includes/class-phpass.php';
 		$hasher = new PasswordHash( 8, true );
 		$_COOKIE[ 'wp-postpass_' . COOKIEHASH ] = $hasher->HashPassword( wp_unslash( $password ) );
 	}
