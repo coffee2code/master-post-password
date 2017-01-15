@@ -10,7 +10,7 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Description: Define a master post password that works for all passworded posts, while permitting the original post passwords to also work.
  *
- * Compatible with WordPress 3.6+ through 4.5+.
+ * Compatible with WordPress 4.7+.
  *
  * =>> Read the accompanying readme.txt file for instructions and documentation.
  * =>> Also, visit the plugin's homepage for additional information and updates.

@@ -4,8 +4,8 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: post password, password, post, passworded, privacy, coffee2code
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Requires at least: 3.6
-Tested up to: 4.5
+Requires at least: 4.7
+Tested up to: 4.7
 Stable tag: 1.1.1
 
 Define a master post password that works for all passworded posts, while permitting the original post passwords to also work.
@@ -93,6 +93,8 @@ Yes.
 * Change: Discontinue efforts to `require_once()` for class-phpass.php, which WP is now certainly sourcing.
 * Change: Enable more error output for unit tests.
 * Change: Default `WP_TESTS_DIR` to `/tmp/wordpress-tests-lib` rather than erroring out if not defined via environment variable.
+* Change: Note compatibility through WP 4.7+.
+* Change: Remove support for WordPress older than 4.7 (definitely won't work for earlier versions)
 * Change: Update copyright date (2017).
 
 = 1.1.1 (2016-05-22) =
