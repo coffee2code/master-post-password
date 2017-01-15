@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.7
 Tested up to: 4.7
-Stable tag: 1.1.1
+Stable tag: 1.2
 
 Define a master post password that works for all passworded posts, while permitting the original post passwords to also work.
 
@@ -84,7 +84,7 @@ Yes.
 
 == Changelog ==
 
-= () =
+= 1.2 (2017-01-15) =
 * Change: Implement new post password handling approach to replace previous hacky approach.
     * Utilize new 'post_password_required' filter to enable use of WP's `get_the_content()` to get content
     * Add `post_password_required()` to check if master post password has been provided, thus negating the need for the post password form
@@ -141,6 +141,9 @@ Yes.
 
 
 == Upgrade Notice ==
+
+= 1.2 =
+Recommended update: some back-end reimplementation to take advantage of WP 4.7 changes, compatibility is now WP 4.7+ (this version won't work for earlier versions of WP), updated copyright date (2017), and other minor improvements.
 
 = 1.1.1 =
 Trivial update: verified compatibility through WP 4.5.

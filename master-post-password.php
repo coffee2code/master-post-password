@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Master Post Password
- * Version:     1.1.1
+ * Version:     1.2
  * Plugin URI:  http://coffee2code.com/wp-plugins/master-post-password/
  * Author:      Scott Reilly
  * Author URI:  http://coffee2code.com/
@@ -18,7 +18,7 @@
  *
  * @package Master_Post_Password
  * @author  Scott Reilly
- * @version 1.1.1
+ * @version 1.2
  */
 
 /*
@@ -69,7 +69,7 @@ class c2c_MasterPostPassword {
 	 * @return string
 	 */
 	public static function version() {
-		return '1.1.1';
+		return '1.2';
 	}
 
 	/**
