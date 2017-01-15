@@ -96,7 +96,7 @@ class c2c_MasterPostPassword {
 		// Load textdomain.
 		load_plugin_textdomain( 'master-post-password' );
 
-		add_filter( 'the_password_form', array( $this, 'check_master_password' ) );
+		add_filter( 'post_password_required', array( $this, 'post_password_required' ), 10, 2 );
 
 		if ( ! defined( 'C2C_MASTER_POST_PASSWORD' ) || ! C2C_MASTER_POST_PASSWORD ) {
 			add_action( 'admin_init', array( $this, 'initialize_setting' ) );
@@ -165,23 +165,18 @@ class c2c_MasterPostPassword {
 	 * Checks the master password to see if the post content can be returned
 	 * instead of the password form.
 	 *
-	 * NOTE: See core #29008 for ticket requesting the value of $post be sent
-	 * to functions hooking 'the_password_form'.
-	 *
-	 * @param string $text The password form markup.
-	 * @return string The post content (if the master password matches) or the
-	 *                password form.
+	 * @param bool    $required Whether the user needs to supply a password. True if password has not been
+	 *                          provided or is incorrect, false if password has been supplied or is not required.
+	 * @param WP_Post $post     Post data.
+	 * @return bool   True if the post passowrd form is still required, false if not.
 	 */
-	public function check_master_password( $text ) {
-		// If the master post password was provided, suppress password requirement
-		// and get post content.
-		if ( $this->post_master_password_provided() ) {
-			add_filter( 'post_password_required', '__return_false' );
-			$text = get_the_content();
-			remove_filter( 'post_password_required', '__return_false' );
+	public function post_password_required( $required, $post ) {
+		// Only check for master post password if the password form is required.
+		if ( $required ) {
+			$required = ! $this->post_master_password_provided();
 		}
 
-		return $text;
+		return $required;
 	}
 
 	/**

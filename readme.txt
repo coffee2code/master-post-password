@@ -73,10 +73,6 @@ Other than the obvious (the master post password has a new value), all existing 
 
 No. As is the case for post passwords in WordPress, the master post password is stored in the database as plaintext. That is, unless the master post password is set by a constant, in which case it is never stored in the database and only in the given .php file (typically wp-config.php, where other site passwords are defined).
 
-= Why is my custom `$more_link_text` argument value to `the_content()`/`get_the_content()` being ignored for posts unlocked using the master post password? =
-
-Unfortunately, due to limitations within WordPress, for posts that are unlocked using the master post password, the `$more_link_text` argument used for `the_content()`/`get_the_content()` is not taken into consideration.
-
 = Does this plugin include unit tests? =
 
 Yes.
@@ -91,8 +87,9 @@ Yes.
 = () =
 * Change: Implement new post password handling approach to replace previous hacky approach.
     * Utilize new 'post_password_required' filter to enable use of WP's `get_the_content()` to get content
+    * Add `post_password_required()` to check if master post password has been provided, thus negating the need for the post password form
     * Remove plugin's `get_the_content()` now that WP's version permits the post password check to be suppressed
-* Change: Sync changes with the plugin's version of `get_the_content()` with WP's version.
+    * Remove `check_master_password()`
 * Change: Enable more error output for unit tests.
 * Change: Default `WP_TESTS_DIR` to `/tmp/wordpress-tests-lib` rather than erroring out if not defined via environment variable.
 

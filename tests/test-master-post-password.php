@@ -162,10 +162,12 @@ class Master_Post_Password_Test extends WP_UnitTestCase {
 		$post = $this->load_post( $post_id );
 
 		$this->assertEquals( get_the_password_form( $post ), get_the_content() );
+		$this->assertTrue( c2c_MasterPostPassword::get_instance()->post_password_required( true, null ) );
 
 		$this->submit_post_password( $master_pw );
 
 		$this->assertEquals( $content, get_the_content() );
+		$this->assertFalse( c2c_MasterPostPassword::get_instance()->post_password_required( true, null ) );
 	}
 
 	public function test_providing_valid_master_post_password_makes_all_passworded_content_available() {
@@ -178,6 +180,7 @@ class Master_Post_Password_Test extends WP_UnitTestCase {
 		$post = $this->load_post( $post_id );
 
 		$this->assertEquals( $content, get_the_content() );
+		$this->assertFalse( c2c_MasterPostPassword::get_instance()->post_password_required( true, null ) );
 	}
 
 	public function test_providing_invalid_master_post_password_doesnt_make_content_available() {
@@ -187,10 +190,12 @@ class Master_Post_Password_Test extends WP_UnitTestCase {
 		$post = $this->load_post( $post_id );
 
 		$this->assertEquals( get_the_password_form( $post ), get_the_content() );
+		$this->assertTrue( c2c_MasterPostPassword::get_instance()->post_password_required( true, null ) );
 
 		$this->submit_post_password( 'badpassword' );
 
 		$this->assertEquals( get_the_password_form( $post ), get_the_content() );
+		$this->assertTrue( c2c_MasterPostPassword::get_instance()->post_password_required( true, null ) );
 	}
 
 	public function test_changing_master_post_password_invalidates_older_password() {
@@ -201,14 +206,17 @@ class Master_Post_Password_Test extends WP_UnitTestCase {
 		$post = $this->load_post( $post_id );
 
 		$this->assertEquals( get_the_password_form( $post ), get_the_content() );
+		$this->assertTrue( c2c_MasterPostPassword::get_instance()->post_password_required( true, null ) );
 
 		$this->submit_post_password( $master_pw );
 
 		$this->assertEquals( $content, get_the_content() );
+		$this->assertFalse( c2c_MasterPostPassword::get_instance()->post_password_required( true, null ) );
 
 		$master_pw = c2c_MasterPostPassword::set_master_password( 'newpassword' );
 
 		$this->assertEquals( get_the_password_form( $post ), get_the_content() );
+		$this->assertTrue( c2c_MasterPostPassword::get_instance()->post_password_required( true, null ) );
 	}
 
 	public function test_master_password_usage_seemlessly_takes_over_for_change_in_post_password() {
@@ -221,21 +229,25 @@ class Master_Post_Password_Test extends WP_UnitTestCase {
 		$post1 = $this->load_post( $post_id1 );
 
 		$this->assertEquals( get_the_password_form( $post1 ), get_the_content() );
+		$this->assertTrue( c2c_MasterPostPassword::get_instance()->post_password_required( true, null ) );
 
 		// Set post pasword first so it'll take effect for the post
 		$this->submit_post_password( $post_pw );
 
 		$this->assertEquals( $content1, get_the_content() );
+		$this->assertFalse( c2c_MasterPostPassword::get_instance()->post_password_required( false, null ) );
 
 		// Check post2
 		$post_id2 = $this->factory->post->create( array( 'post_password' => 'different_post_pw', 'post_content' => $content2 ) );
 		$post2 = $this->load_post( $post_id2 );
 
 		$this->assertEquals( get_the_password_form( $post2 ), get_the_content() );
+		$this->assertTrue( c2c_MasterPostPassword::get_instance()->post_password_required( true, null ) );
 
 		$this->submit_post_password( $master_pw );
 
 		$this->assertEquals( $content2, get_the_content() );
+		$this->assertFalse( c2c_MasterPostPassword::get_instance()->post_password_required( true, null ) );
 	}
 
 	/**
