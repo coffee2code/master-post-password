@@ -85,6 +85,8 @@ Yes.
 == Changelog ==
 
 = () =
+* Unit tests:
+    * Change: Minor whitespace tweaks to bootstrap
 * Change: Add GitHub link to readme
 * Change: Note compatibility through WP 4.9+
 * Change: Update copyright date (2018)
