@@ -89,6 +89,7 @@ Yes. This plugin does not collect, store, or disseminate any information from an
 == Changelog ==
 
 = () =
+* New: Add README.md
 * New: Add FAQ indicating that the plugin is GDPR-compliant
 * Unit tests:
     * Change: Minor whitespace tweaks to bootstrap
