@@ -92,6 +92,7 @@ Yes. This plugin does not collect, store, or disseminate any information from an
 * New: Add README.md
 * New: Add FAQ indicating that the plugin is GDPR-compliant
 * Unit tests:
+    * Fix: Explicitly require `class-phpass.php` to get `PasswordHash` class
     * Change: Minor whitespace tweaks to bootstrap
 * Change: Add GitHub link to readme
 * Change: Note compatibility through WP 4.9+
