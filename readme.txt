@@ -81,10 +81,15 @@ Yes.
 
 Yes.
 
+= Is this plugin GDPR-compliant? =
+
+Yes. This plugin does not collect, store, or disseminate any information from any users or site visitors.
+
 
 == Changelog ==
 
 = () =
+* New: Add FAQ indicating that the plugin is GDPR-compliant
 * Unit tests:
     * Change: Minor whitespace tweaks to bootstrap
 * Change: Add GitHub link to readme
