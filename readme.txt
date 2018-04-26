@@ -5,7 +5,7 @@ Tags: post password, password, post, passworded, privacy, coffee2code
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.7
-Tested up to: 4.7
+Tested up to: 4.9
 Stable tag: 1.2
 
 Define a master post password that works for all passworded posts, while permitting the original post passwords to also work.
@@ -85,6 +85,7 @@ Yes.
 == Changelog ==
 
 = () =
+* Change: Note compatibility through WP 4.9+
 * Change: Update copyright date (2018)
 
 = 1.2 (2017-01-15) =
