@@ -84,6 +84,9 @@ Yes.
 
 == Changelog ==
 
+= () =
+* Change: Update copyright date (2018)
+
 = 1.2 (2017-01-15) =
 * Change: Implement new post password handling approach to replace previous hacky approach.
     * Utilize new 'post_password_required' filter to enable use of WP's `get_the_content()` to get content
