@@ -26,7 +26,7 @@ b.) Via the settings field labeled "Master Post Password" found on the `Settings
 
 If the constant is defined, it takes precedence and the settings field is *NOT* displayed.
 
-Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/master-post-password/) | [Plugin Directory Page](https://wordpress.org/plugins/master-post-password/) | [Author Homepage](http://coffee2code.com)
+Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/master-post-password/) | [Plugin Directory Page](https://wordpress.org/plugins/master-post-password/) | [GitHub](https://github.com/coffee2code/master-post-password/) | [Author Homepage](http://coffee2code.com)
 
 
 == Installation ==
@@ -85,6 +85,7 @@ Yes.
 == Changelog ==
 
 = () =
+* Change: Add GitHub link to readme
 * Change: Note compatibility through WP 4.9+
 * Change: Update copyright date (2018)
 
