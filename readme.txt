@@ -73,6 +73,12 @@ Other than the obvious (the master post password has a new value), all existing 
 
 No. As is the case for post passwords in WordPress, the master post password is stored in the database as plaintext. That is, unless the master post password is set by a constant, in which case it is never stored in the database and only in the given .php file (typically wp-config.php, where other site passwords are defined).
 
+= Why can't I see the setting on the "Reading Settings" admin page? =
+
+Are you logged in as an administrative user who can access the "Settings" -> "Reading" admin page? Is the plugin installed and activated?
+
+Assuming those are true, have you set a master post password via the C2C_MASTER_POST_PASSWORD constant? If so, the admin setting will not be displayed.
+
 = Does this plugin include unit tests? =
 
 Yes.
@@ -91,6 +97,7 @@ Yes. This plugin does not collect, store, or disseminate any information from an
 = () =
 * Change: Initialize plugin on 'plugins_loaded' action instead of on load
 * Change: Merge `do_init()` into constructor
+* Change: Add an FAQ item
 * Change: Note compatibility through WP 5.1+
 * Change: Update copyright date (2019)
 * Change: Update License URI to be HTTPS
