@@ -181,8 +181,9 @@ class c2c_MasterPostPassword {
 	 * Determines if submitted post password matches the master password.
 	 *
 	 * @access private
+	 * @see post_password_required()
 	 *
-	 * @return bool True == master password provided and matches.
+	 * @return bool True if master password is provided and matches, false if not.
 	 */
 	private function post_master_password_provided() {
 		if ( ! isset( $_COOKIE[ 'wp-postpass_' . COOKIEHASH ] ) ) {
