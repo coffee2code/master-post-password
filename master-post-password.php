@@ -216,6 +216,6 @@ class c2c_MasterPostPassword {
 
 }
 
-c2c_MasterPostPassword::get_instance();
+add_action( 'plugins_loaded', array( 'c2c_MasterPostPassword', 'get_instance' ) );
 
 endif;

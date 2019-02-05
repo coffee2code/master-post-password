@@ -89,6 +89,7 @@ Yes. This plugin does not collect, store, or disseminate any information from an
 == Changelog ==
 
 = () =
+* Change: Initialize plugin on 'plugins_loaded' action instead of on load
 * Change: Note compatibility through WP 5.1+
 * Change: Update copyright date (2019)
 * Change: Update License URI to be HTTPS
