@@ -89,6 +89,7 @@ Yes. This plugin does not collect, store, or disseminate any information from an
 == Changelog ==
 
 = () =
+* Change: Update copyright date (2019)
 * Change: Update License URI to be HTTPS
 
 = 1.2.1 (2018-04-25) =
