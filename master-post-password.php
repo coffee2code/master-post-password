@@ -89,13 +89,6 @@ class c2c_MasterPostPassword {
 	 * @access private
 	 */
 	private function __construct() {
-		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ) );
-	}
-
-	/**
-	 * Initializes the plugin.
-	 */
-	public function plugins_loaded() {
 		// Load textdomain.
 		load_plugin_textdomain( 'master-post-password' );
 
