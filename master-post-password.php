@@ -7,7 +7,7 @@
  * Author URI:  http://coffee2code.com/
  * Text Domain: master-post-password
  * License:     GPLv2 or later
- * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Description: Define a master post password that works for all passworded posts, while permitting the original post passwords to also work.
  *
  * Compatible with WordPress 4.7 through 4.9+.
