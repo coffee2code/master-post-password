@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Master Post Password
- * Version:     1.2.1
+ * Version:     1.3
  * Plugin URI:  http://coffee2code.com/wp-plugins/master-post-password/
  * Author:      Scott Reilly
  * Author URI:  http://coffee2code.com/
@@ -18,7 +18,14 @@
  *
  * @package Master_Post_Password
  * @author  Scott Reilly
- * @version 1.2.1
+ * @version 1.3
+ */
+
+/*
+ * TODO:
+ * - Add a filter at the point at which a master password is being authenticated
+ *   for use. Would facilitate the ability to log who, when, and where a master
+ *   password is being used.
  */
 
 /*
@@ -69,7 +76,7 @@ class c2c_MasterPostPassword {
 	 * @return string
 	 */
 	public static function version() {
-		return '1.2.1';
+		return '1.3';
 	}
 
 	/**
