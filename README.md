@@ -14,7 +14,7 @@ A plugin for WordPress that allows a master post password to work for all passwo
 
 ## Additional Documentation
 
-See [readme.txt](https://github.com/coffee2code/master-post-password/blob/master/readme.txt) for additional usage information.
+See [readme.txt](https://github.com/coffee2code/master-post-password/blob/master/readme.txt) for additional usage information. See [CHANGELOG.md](CHANGELOG.md) for the list of changes for each release.
 
 
 ## Support

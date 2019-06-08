@@ -113,61 +113,7 @@ Yes. This plugin does not collect, store, or disseminate any information from an
 * Change: Note compatibility through WP 4.9+
 * Change: Update copyright date (2018)
 
-= 1.2 (2017-01-15) =
-* Change: Implement new post password handling approach to replace previous hacky approach.
-    * Utilize new 'post_password_required' filter to enable use of WP's `get_the_content()` to get content
-    * Add `post_password_required()` to check if master post password has been provided, thus negating the need for the post password form
-    * Remove plugin's `get_the_content()` now that WP's version permits the post password check to be suppressed
-    * Remove `check_master_password()`
-* Change: Discontinue efforts to `require_once()` for class-phpass.php, which WP is now certainly sourcing.
-* Change: Enable more error output for unit tests.
-* Change: Default `WP_TESTS_DIR` to `/tmp/wordpress-tests-lib` rather than erroring out if not defined via environment variable.
-* Change: Note compatibility through WP 4.7+.
-* Change: Remove support for WordPress older than 4.7 (definitely won't work for earlier versions)
-* Change: Documentation improvements.
-* Change: Update copyright date (2017).
-
-= 1.1.1 (2016-05-22) =
-* Change: Prevent web invocation of unit test bootstrap.php.
-* Change: Tweak plugin description.
-* Change: Note compatibility through WP 4.5+.
-
-= 1.1 (2016-03-17) =
-* Bugfix (minor): If constanct is used to set master password, ensure `set_master_password()` returns its value instead of attempted password.
-* Change: Add support for language packs:
-    * Change text domain from 'c2cmpp' to 'master-post-password'.
-    * Don't load textdomain from file.
-    * Add 'Text Domain' to plugin header.
-* New: Add LICENSE file.
-* New: Add empty index.php to prevent files from being listed if web server has enabled directory listings.
-* Change: Explicitly declare methods in unit tests as public or protected.
-* Change: Tweak description.
-* Change: Note compatibility through WP 4.4+.
-* Change: Update copyright date (2016).
-
-= 1.0.3 (2015-02-19) =
-* Escape values in some attributes for added precaution
-* Add more unit tests
-* Note compatibility through WP 4.1+
-* Update copyright date (2015)
-
-= 1.0.2 (2014-08-25) =
-* Add version() to return current plugin version
-* Minor plugin header reformatting
-* Minor code reformatting (spacing, bracing)
-* Change documentation links to wp.org to be https
-* Note compatibility through WP 4.0+
-* Add plugin icon
-
-= 1.0.1 =
-* Tweak description
-* Note compatibility through WP 3.8+
-* Update copyright date (2014)
-* Change donate link
-
-= 1.0 =
-* Initial public release
-
+= Full changelog is available in [CHANGELOG.md](CHANGELOG.md). =
 
 == Upgrade Notice ==
 
