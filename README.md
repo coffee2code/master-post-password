@@ -2,6 +2,8 @@
 
 A plugin for WordPress that allows a master post password to work for all passworded posts, while permitting the original post passwords to also work.
 
+This plugin is available in the WordPress Plugin Directory: https://wordpress.org/plugins/master-post-password/
+
 
 ## Installation
 

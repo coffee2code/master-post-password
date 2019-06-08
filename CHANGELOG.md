@@ -2,6 +2,7 @@
 
 ## _(in-progress)_
 * New: Add CHANGELOG.md and move all but most recent changelog entries into it
+* Change: Add link to plugin's page in Plugin Directory to README.md
 
 ## 1.3 _(2019-02-04)_
 * Change: Initialize plugin on 'plugins_loaded' action instead of on load
