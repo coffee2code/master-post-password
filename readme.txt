@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.7
 Tested up to: 5.2
-Stable tag: 1.3
+Stable tag: 1.3.1
 
 Define a master post password that works for all passworded posts, while permitting the original post passwords to also work.
 
@@ -94,6 +94,12 @@ Yes. This plugin does not collect, store, or disseminate any information from an
 
 == Changelog ==
 
+= 1.3.1 (2019-06-07) =
+* New: Add CHANGELOG.md and move all but most recent changelog entries into it
+* Change: Update unit test install script and bootstrap to use latest WP unit test repo
+* Change: Add link to plugin's page in Plugin Directory to README.md
+* Change: Note compatibility through WP 5.2+
+
 = 1.3 (2019-02-04) =
 * Change: Initialize plugin on 'plugins_loaded' action instead of on load
 * Change: Merge `do_init()` into constructor
@@ -115,7 +121,11 @@ Yes. This plugin does not collect, store, or disseminate any information from an
 
 = Full changelog is available in [CHANGELOG.md](CHANGELOG.md). =
 
+
 == Upgrade Notice ==
+
+= 1.3.1 =
+Trivial update: modernized unit tests, created CHANGELOG.md to store historical changelog outside of readme.txt, noted compatibility through WP 5.2+
 
 = 1.3 =
 Minor update: tweaked plugin initialization process, aded more inline documentation, noted compatibility through WP 5.1+, updated copyright date (2019)

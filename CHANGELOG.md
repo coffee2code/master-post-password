@@ -1,6 +1,6 @@
 # Changelog
 
-## _(in-progress)_
+## 1.3.1 _(2019-06-07)_
 * New: Add CHANGELOG.md and move all but most recent changelog entries into it
 * Change: Update unit test install script and bootstrap to use latest WP unit test repo
 * Change: Add link to plugin's page in Plugin Directory to README.md
