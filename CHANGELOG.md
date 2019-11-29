@@ -1,6 +1,6 @@
 # Changelog
 
-## _(in-progress)_
+## 1.3.2 _(2019-11-28)_
 * Change: Note compatibility through WP 5.3+
 * Change: Use full URL for readme.txt link to full changelog
 * Change: Update copyright date (2020)
