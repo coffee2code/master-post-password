@@ -119,7 +119,7 @@ Yes. This plugin does not collect, store, or disseminate any information from an
 * Change: Note compatibility through WP 4.9+
 * Change: Update copyright date (2018)
 
-= Full changelog is available in [CHANGELOG.md](CHANGELOG.md). =
+_Full changelog is available in [CHANGELOG.md](https://github.com/coffee2code/master-post-password/blob/master/CHANGELOG.md)._
 
 
 == Upgrade Notice ==
