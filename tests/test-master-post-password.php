@@ -68,6 +68,18 @@ class Master_Post_Password_Test extends WP_UnitTestCase {
 		$this->assertEquals( '1.3.2', c2c_MasterPostPassword::version() );
 	}
 
+	public function test_hooks_plugins_loaded() {
+		$this->assertEquals( 10, has_filter( 'plugins_loaded', array( 'c2c_MasterPostPassword', 'get_instance' ) ) );
+	}
+
+	public function test_hooks_post_password_required() {
+		$this->assertEquals( 10, has_filter( 'post_password_required', array( c2c_MasterPostPassword::get_instance(), 'post_password_required' ) ) );
+	}
+
+	public function test_hooks_admin_init() {
+		$this->assertEquals( 10, has_action( 'admin_init', array( c2c_MasterPostPassword::get_instance(), 'initialize_setting' ) ) );
+	}
+
 	public function test_passworded_post_returns_password_form_as_content() {
 		$post_id = $this->factory->post->create( array( 'post_password' => 'abcabc', 'post_content' => 'Protected content' ) );
 		$post = $this->load_post( $post_id );
