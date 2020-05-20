@@ -2,9 +2,9 @@
 /**
  * Plugin Name: Master Post Password
  * Version:     1.3.2
- * Plugin URI:  http://coffee2code.com/wp-plugins/master-post-password/
+ * Plugin URI:  https://coffee2code.com/wp-plugins/master-post-password/
  * Author:      Scott Reilly
- * Author URI:  http://coffee2code.com/
+ * Author URI:  https://coffee2code.com/
  * Text Domain: master-post-password
  * License:     GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
