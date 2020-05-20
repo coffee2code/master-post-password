@@ -65,7 +65,7 @@ class Master_Post_Password_Test extends WP_UnitTestCase {
 	}
 
 	public function test_version() {
-		$this->assertEquals( '1.3.2', c2c_MasterPostPassword::version() );
+		$this->assertEquals( '1.3.3', c2c_MasterPostPassword::version() );
 	}
 
 	public function test_hooks_plugins_loaded() {
