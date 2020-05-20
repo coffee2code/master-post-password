@@ -22,13 +22,6 @@
  */
 
 /*
- * TODO:
- * - Add a filter at the point at which a master password is being authenticated
- *   for use. Would facilitate the ability to log who, when, and where a master
- *   password is being used.
- */
-
-/*
 	Copyright (c) 2013-2020 by Scott Reilly (aka coffee2code)
 
 	This program is free software; you can redistribute it and/or
