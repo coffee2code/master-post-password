@@ -12,6 +12,7 @@
 * Unit tests:
     * New: Add tests for `display_option()`, `initialize_setting()`
     * New: Add test for setting name
+    * Change: Store plugin instance in test object to simplify referencing it
 
 ## 1.3.3 _(2020-05-20)_
 * New: Add TODO.md and move existing TODO list from top of main plugin file into it (and add to it)
