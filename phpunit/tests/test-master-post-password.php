@@ -15,6 +15,9 @@ class Master_Post_Password_Test extends WP_UnitTestCase {
 		unset( $GLOBALS['_COOKIE'] );
 		parent::tearDown();
 		c2c_MasterPostPassword::set_master_password( '' );
+
+		unset( $GLOBALS['wp_settings_fields'] );
+		unset( $GLOBALS['wp_registered_settings'] );
 	}
 
 
@@ -82,6 +85,26 @@ class Master_Post_Password_Test extends WP_UnitTestCase {
 
 	public function test_setting_name() {
 		$this->assertEquals( 'c2c_master_post_password', c2c_MasterPostPassword::$setting_name );
+	}
+
+	/*
+	 * initialize_setting()
+	 */
+
+	public function test_setting_is_registered_for_authorized_user() {
+		$user_id = $this->factory->user->create( array( 'role' => 'administrator' ) );
+		wp_set_current_user( $user_id );
+		c2c_MasterPostPassword::get_instance()->initialize_setting();
+
+		$this->assertArrayHasKey( 'c2c_master_post_password', get_registered_settings() );
+	}
+
+	public function test_setting_is_not_registered_for_unauthorized_user() {
+		$user_id = $this->factory->user->create( array( 'role' => 'subscriber' ) );
+		wp_set_current_user( $user_id );
+		c2c_MasterPostPassword::get_instance()->initialize_setting();
+
+		$this->assertArrayNotHasKey( 'c2c_master_post_password', get_registered_settings() );
 	}
 
 	public function test_passworded_post_returns_password_form_as_content() {
