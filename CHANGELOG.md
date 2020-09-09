@@ -9,6 +9,7 @@
     * Change: Move `tests/` to `phpunit/tests/`
     * Change: Rename `phpunit.xml` to `phpunit.xml.dist` per best practices
 * Change: Note compatibility through WP 5.5+
+* New: Add more TODO items
 * Unit tests:
     * New: Add tests for `display_option()`, `initialize_setting()`
     * New: Add test for setting name
