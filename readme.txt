@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.7
 Tested up to: 5.5
-Stable tag: 1.3.3
+Stable tag: 1.3.4
 
 Define a master post password that works for all passworded posts, while permitting the original post passwords to also work.
 
@@ -94,6 +94,21 @@ Yes. This plugin does not collect, store, or disseminate any information from an
 
 == Changelog ==
 
+= 1.3.4 (2020-09-09) =
+* Change: Add newline after each block-type tag in output markup
+* Change: Restructure unit test file structure
+    * New: Create new subdirectory `phpunit/` to house all files related to unit testing
+    * Change: Move `bin/` to `phpunit/bin/`
+    * Change: Move `tests/bootstrap.php` to `phpunit/`
+    * Change: Move `tests/` to `phpunit/tests/`
+    * Change: Rename `phpunit.xml` to `phpunit.xml.dist` per best practices
+* Change: Note compatibility through WP 5.5+
+* New: Add more TODO items
+* Unit tests:
+    * New: Add tests for `display_option()`, `initialize_setting()`
+    * New: Add test for setting name
+    * Change: Store plugin instance in test object to simplify referencing it
+
 = 1.3.3 (2020-05-20) =
 * New: Add TODO.md and move existing TODO list from top of main plugin file into it (and add to it)
 * Change: Use HTTPS for link to WP SVN repository in bin script for configuring unit tests
@@ -106,16 +121,13 @@ Yes. This plugin does not collect, store, or disseminate any information from an
 * Change: Use full URL for readme.txt link to full changelog
 * Change: Update copyright date (2020)
 
-= 1.3.1 (2019-06-07) =
-* New: Add CHANGELOG.md and move all but most recent changelog entries into it
-* Change: Update unit test install script and bootstrap to use latest WP unit test repo
-* Change: Add link to plugin's page in Plugin Directory to README.md
-* Change: Note compatibility through WP 5.2+
-
 _Full changelog is available in [CHANGELOG.md](https://github.com/coffee2code/master-post-password/blob/master/CHANGELOG.md)._
 
 
 == Upgrade Notice ==
+
+= 1.3.4 =
+Trivial update: Added newlines to output markup, restructured unit test file structure, expanded unit testing, and noted compatibility through WP 5.5+.
 
 = 1.3.3 =
 Trivial update: Added TODO.md file, updated a few URLs to be HTTPS, and noted compatibility through WP 5.4+.
