@@ -107,6 +107,21 @@ class Master_Post_Password_Test extends WP_UnitTestCase {
 		$this->assertArrayNotHasKey( 'c2c_master_post_password', get_registered_settings() );
 	}
 
+	/*
+	 * display_option()
+	 */
+
+	public function test_display_option() {
+		$password = c2c_MasterPostPassword::get_instance()->set_master_password( 'somepassword' );
+		$expected = <<<HTML
+<input type="text" name="c2c_master_post_password" value="somepassword"/>
+<p class="description">A password that can be used to access any passworded post.</p>
+<p class="description"><strong>NOTE:</strong> Each passworded post's original post password will continue to work as well.</p>
+HTML;
+
+		$this->expectOutputRegex( '~^' . preg_quote( $expected ) . '?~', c2c_MasterPostPassword::get_instance()->display_option( array() ) );
+	}
+
 	public function test_passworded_post_returns_password_form_as_content() {
 		$post_id = $this->factory->post->create( array( 'post_password' => 'abcabc', 'post_content' => 'Protected content' ) );
 		$post = $this->load_post( $post_id );

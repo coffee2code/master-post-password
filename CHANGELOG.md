@@ -10,7 +10,7 @@
     * Change: Rename `phpunit.xml` to `phpunit.xml.dist` per best practices
 * Change: Note compatibility through WP 5.5+
 * Unit tests:
-    * New: Add tests for `initialize_setting()`
+    * New: Add tests for `display_option()`, `initialize_setting()`
     * New: Add test for setting name
 
 ## 1.3.3 _(2020-05-20)_
