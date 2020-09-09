@@ -118,9 +118,9 @@ class c2c_MasterPostPassword {
 	 * @param array $args
 	 */
 	public function display_option( $args ) {
-		echo '<input type="text" name="' . esc_attr( self::$setting_name ) . '" value="' . esc_attr( $this->get_master_password() ) . '"/>';
-		echo '<p class="description">' . __( 'A password that can be used to access any passworded post.', 'master-post-password' ) . '</p>';
-		echo '<p class="description">' . __( "<strong>NOTE:</strong> Each passworded post's original post password will continue to work as well.", 'master-post-password' ) . '</p>';
+		echo '<input type="text" name="' . esc_attr( self::$setting_name ) . '" value="' . esc_attr( $this->get_master_password() ) . '"/>' . "\n";
+		echo '<p class="description">' . __( 'A password that can be used to access any passworded post.', 'master-post-password' ) . "</p>\n";
+		echo '<p class="description">' . __( "<strong>NOTE:</strong> Each passworded post's original post password will continue to work as well.", 'master-post-password' ) . "</p>\n";
 	}
 
 	/**
