@@ -1,5 +1,8 @@
 # Changelog
 
+## _(in-progress)_
+* Change: Note compatibility through WP 5.5+
+
 ## 1.3.3 _(2020-05-20)_
 * New: Add TODO.md and move existing TODO list from top of main plugin file into it (and add to it)
 * Change: Use HTTPS for link to WP SVN repository in bin script for configuring unit tests
