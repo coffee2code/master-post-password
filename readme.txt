@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.7
 Tested up to: 5.7
-Stable tag: 1.3.4
+Stable tag: 1.3.5
 
 Define a master post password that works for all passworded posts, while permitting the original post passwords to also work.
 
@@ -94,6 +94,12 @@ Yes. This plugin does not collect, store, or disseminate any information from an
 
 == Changelog ==
 
+= 1.3.5 (2021-04-20) =
+* Change: Note compatibility through WP 5.7+
+* Change: Tweak some documentation formatting
+* Change: Update copyright date (2021)
+* New: Add a few more possible TODO items
+
 = 1.3.4 (2020-09-09) =
 * Change: Add newline after each block-type tag in output markup
 * Change: Restructure unit test file structure
@@ -116,15 +122,13 @@ Yes. This plugin does not collect, store, or disseminate any information from an
 * Change: Update links to coffee2code.com to be HTTPS
 * New: Unit tests: Add tests for registering of hooks
 
-= 1.3.2 (2019-11-28) =
-* Change: Note compatibility through WP 5.3+
-* Change: Use full URL for readme.txt link to full changelog
-* Change: Update copyright date (2020)
-
 _Full changelog is available in [CHANGELOG.md](https://github.com/coffee2code/master-post-password/blob/master/CHANGELOG.md)._
 
 
 == Upgrade Notice ==
+
+= 1.3.5 =
+Trivial update: noted compatibility through WP 5.7+, tweaked some documentation formatting, and updated copyright date (2021)
 
 = 1.3.4 =
 Trivial update: Added newlines to output markup, restructured unit test file structure, expanded unit testing, and noted compatibility through WP 5.5+.
