@@ -20,7 +20,7 @@ There are two means by which the master post password can be defined:
 
 a.) As a constant, `C2C_MASTER_POST_PASSWORD`. This is typically done in wp-config.php like so:
 
-  `define( 'C2C_MASTER_POST_PASSWORD', 'your_master_post_password' );`
+`define( 'C2C_MASTER_POST_PASSWORD', 'your_master_post_password' );`
 
 b.) Via the settings field labeled "Master Post Password" found on the `Settings` -> `Reading` admin page.
 
@@ -77,7 +77,7 @@ No. As is the case for post passwords in WordPress, the master post password is 
 
 Are you logged in as an administrative user who can access the "Settings" -> "Reading" admin page? Is the plugin installed and activated?
 
-Assuming those are true, have you set a master post password via the C2C_MASTER_POST_PASSWORD constant? If so, the admin setting will not be displayed.
+Assuming those are true, have you set a master post password via the `C2C_MASTER_POST_PASSWORD` constant? If so, the admin setting will not be displayed.
 
 = Does this plugin include unit tests? =
 
