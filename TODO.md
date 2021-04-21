@@ -13,5 +13,7 @@ The following list comprises ideas, suggestions, and known issues, all of which 
   * Bulk set/unset mpp for users?
   * Definitely need a way clear mpp for all users
 * Add helper to autogenerate a random password
+* Add a filter in `get_master_password()` to allow programmatically overriding master post password? If so, should that also override constant, or just the setting value?
+* Checkbox to configure whether existing post passwords should be ignored, making the master post password the only acceptable password for unlocking passworded posts.
 
 Feel free to make your own suggestions or champion for something already on the list (via the [plugin's support forum on WordPress.org](https://wordpress.org/support/plugin/master-post-password/) or on [GitHub](https://github.com/coffee2code/master-post-password/) as an issue or PR).
