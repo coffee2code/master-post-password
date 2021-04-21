@@ -1,5 +1,8 @@
 # Changelog
 
+## _(in-progress)_
+* Change: Update copyright date (2021)
+
 ## 1.3.4 _(2020-09-09)_
 * Change: Add newline after each block-type tag in output markup
 * Change: Restructure unit test file structure
