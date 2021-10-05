@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.7
 Tested up to: 5.8
-Stable tag: 1.3.5
+Stable tag: 1.3.6
 
 Define a master post password that works for all passworded posts, while permitting the original post passwords to also work.
 
@@ -94,6 +94,18 @@ Yes. This plugin does not collect, store, or disseminate any information from an
 
 == Changelog ==
 
+= 1.3.6 (2021-10-04) =
+* Change: Note compatibility through WP 5.8+
+* Change: Tweak installation instruction
+* Unit tests:
+    * Change: Restructure unit test directories
+        * Change: Move `phpunit/` into `tests/`
+        * Change: Move `phpunit/bin` into `tests/`
+    * Change: Remove 'test-' prefix from unit test file
+    * Change: In bootstrap, store path to plugin file constant
+    * Change: In bootstrap, add backcompat for PHPUnit pre-v6.0
+* New: Add a couple more possible TODO items
+
 = 1.3.5 (2021-04-20) =
 * Change: Note compatibility through WP 5.7+
 * Change: Tweak some documentation formatting
@@ -115,17 +127,13 @@ Yes. This plugin does not collect, store, or disseminate any information from an
     * New: Add test for setting name
     * Change: Store plugin instance in test object to simplify referencing it
 
-= 1.3.3 (2020-05-20) =
-* New: Add TODO.md and move existing TODO list from top of main plugin file into it (and add to it)
-* Change: Use HTTPS for link to WP SVN repository in bin script for configuring unit tests
-* Change: Note compatibility through WP 5.4+
-* Change: Update links to coffee2code.com to be HTTPS
-* New: Unit tests: Add tests for registering of hooks
-
 _Full changelog is available in [CHANGELOG.md](https://github.com/coffee2code/master-post-password/blob/master/CHANGELOG.md)._
 
 
 == Upgrade Notice ==
+
+= 1.3.6 =
+Trivial update: noted compatibility through WP 5.8+ and minor reorganization and tweaks to unit tests
 
 = 1.3.5 =
 Trivial update: noted compatibility through WP 5.7+, tweaked some documentation formatting, and updated copyright date (2021)

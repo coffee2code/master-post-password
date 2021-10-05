@@ -1,6 +1,6 @@
 # Changelog
 
-## _(in-progress)_
+## 1.3.6 _(2021-10-04)_
 * Change: Note compatibility through WP 5.8+
 * Change: Tweak installation instruction
 * Unit tests:
