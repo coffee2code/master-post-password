@@ -19,5 +19,6 @@ The following list comprises ideas, suggestions, and known issues, all of which 
   * Obviously, this requires renaming: functions, constant, files, class. setting name(?)
   * Update all references in docs
   * Back-compat for rename of constant and setting
+* If a master post password is set via constant, still add a placeholder setting of sorts (which doesn't actually allow input) to indicate a password was set via constant and thus cannot be set via settings.
 
 Feel free to make your own suggestions or champion for something already on the list (via the [plugin's support forum on WordPress.org](https://wordpress.org/support/plugin/master-post-password/) or on [GitHub](https://github.com/coffee2code/master-post-password/) as an issue or PR).
