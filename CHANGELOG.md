@@ -1,5 +1,8 @@
 # Changelog
 
+## _(in-progress)_
+* Change: Note compatibility through WP 5.8+
+
 ## 1.3.5 _(2021-04-20)_
 * Change: Note compatibility through WP 5.7+
 * Change: Tweak some documentation formatting
