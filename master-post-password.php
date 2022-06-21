@@ -109,7 +109,7 @@ class c2c_MasterPostPassword {
 		}
 
 		register_setting( 'reading', self::$setting_name );
-		add_settings_field( self::$setting_name, __( 'Master Post Password', 'master-post-password' ), array( $this, 'display_option' ), 'reading' );
+		add_settings_field( self::$setting_name, _x( 'Master Post Password', 'UI String', 'master-post-password' ), array( $this, 'display_option' ), 'reading' );
 	}
 
 	/**
