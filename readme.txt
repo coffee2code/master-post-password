@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.7
 Tested up to: 6.3
-Stable tag: 1.3.6
+Stable tag: 1.3.7
 
 Define a master post password that works for all passworded posts, while permitting the original post passwords to also work.
 
@@ -94,6 +94,10 @@ Yes. This plugin does not collect, store, or disseminate any information from an
 
 == Changelog ==
 
+= 1.3.7 (2023-08-05) =
+* Change: Note compatibility through WP 6.3+
+* Change: Update copyright date (2023)
+
 = 1.3.6 (2021-10-04) =
 * Change: Note compatibility through WP 5.8+
 * Change: Tweak installation instruction
@@ -112,25 +116,13 @@ Yes. This plugin does not collect, store, or disseminate any information from an
 * Change: Update copyright date (2021)
 * New: Add a few more possible TODO items
 
-= 1.3.4 (2020-09-09) =
-* Change: Add newline after each block-type tag in output markup
-* Change: Restructure unit test file structure
-    * New: Create new subdirectory `phpunit/` to house all files related to unit testing
-    * Change: Move `bin/` to `phpunit/bin/`
-    * Change: Move `tests/bootstrap.php` to `phpunit/`
-    * Change: Move `tests/` to `phpunit/tests/`
-    * Change: Rename `phpunit.xml` to `phpunit.xml.dist` per best practices
-* Change: Note compatibility through WP 5.5+
-* New: Add more TODO items
-* Unit tests:
-    * New: Add tests for `display_option()`, `initialize_setting()`
-    * New: Add test for setting name
-    * Change: Store plugin instance in test object to simplify referencing it
-
 _Full changelog is available in [CHANGELOG.md](https://github.com/coffee2code/master-post-password/blob/master/CHANGELOG.md)._
 
 
 == Upgrade Notice ==
+
+= 1.3.7 =
+Trivial update: noted compatibility through WP 6.3+ and updated copyright date (2023)
 
 = 1.3.6 =
 Trivial update: noted compatibility through WP 5.8+ and minor reorganization and tweaks to unit tests
