@@ -1,5 +1,8 @@
 # Changelog
 
+## _(in-progress)_
+* Change: Update copyright date (2023)
+
 ## 1.3.6 _(2021-10-04)_
 * Change: Note compatibility through WP 5.8+
 * Change: Tweak installation instruction
