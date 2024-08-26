@@ -5,7 +5,8 @@
  * @package Master_Post_Password
  */
 
-define( 'MASTER_POST_PASSWORD_PLUGIN_FILE', dirname( __FILE__, 3 ) . '/master-post-password.php' );
+define( 'MASTER_POST_PASSWORD_PLUGIN_DIR',  dirname( __FILE__, 3 ) );
+define( 'MASTER_POST_PASSWORD_PLUGIN_FILE', MASTER_POST_PASSWORD_PLUGIN_DIR . '/master-post-password.php' );
 
 ini_set( 'display_errors', 'on' );
 error_reporting( E_ALL );
