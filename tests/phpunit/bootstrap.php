@@ -5,6 +5,9 @@
  * @package Master_Post_Password
  */
 
+// Prevent web access.
+( php_sapi_name() !== 'cli' ) && die();
+
 define( 'MASTER_POST_PASSWORD_PLUGIN_DIR',  dirname( __FILE__, 3 ) );
 define( 'MASTER_POST_PASSWORD_PLUGIN_FILE', MASTER_POST_PASSWORD_PLUGIN_DIR . '/master-post-password.php' );
 

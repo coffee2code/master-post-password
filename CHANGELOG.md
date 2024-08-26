@@ -7,6 +7,7 @@
 * Change: Remove development and testing-related files from release packaging
 * Change: Tweak formatting in `README.md`
 * Unit tests:
+    * Hardening: Prevent direct web access to `bootstrap.php`
     * Allow tests to run against current versions of WordPress
     * New: Add `composer.json` for PHPUnit Polyfill dependency
     * Change: In bootstrap, store path to plugin directory in a constant
