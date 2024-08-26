@@ -124,6 +124,34 @@ HTML;
 		$this->expectOutputRegex( '~^' . preg_quote( $expected ) . '?~', $this->obj->display_option( array() ) );
 	}
 
+	public function test_display_option_removes_markup_in_translations() {
+		add_filter( 'gettext', function ( $translation, $text, $domain ) {
+			if ( 'master-post-password' !== $domain ) {
+				return $translation;
+			}
+			if ( 'A password that can be used to access any passworded post.' == $text ) {
+				$translation = 'A <strong>password</strong> that can be used to access any passworded post.';
+			}
+			elseif ( "<strong>NOTE:</strong> Each passworded post's original post password will continue to work as well." === $text ) {
+				$translation = "<strong>NOTE:</strong> Each passworded post's original <script>alert('Danger');</script>post password will continue to work as well.";
+			}
+			return $translation;
+		}, 10, 3 );
+		$password = $this->obj->set_master_password( 'somepassword' );
+		$expected = <<<HTML
+<input type="text" name="c2c_master_post_password" value="somepassword"/>
+<p class="description">A &lt;strong&gt;password&lt;/strong&gt; that can be used to access any passworded post.</p>
+<p class="description"><strong>NOTE:</strong> Each passworded post's original alert('Danger');post password will continue to work as well.</p>
+HTML;
+
+		$this->expectOutputRegex( '~^' . preg_quote( $expected ) . '?~', $this->obj->display_option( array() ) );
+
+	}
+
+	/*
+	 * Post content
+	 */
+
 	public function test_passworded_post_returns_password_form_as_content() {
 		$post_id = $this->factory->post->create( array( 'post_password' => 'abcabc', 'post_content' => 'Protected content' ) );
 		$post = $this->load_post( $post_id );
