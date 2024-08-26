@@ -7,6 +7,7 @@
 * New: Add `.gitignore` file
 * Change: Remove development and testing-related files from release packaging
 * Change: Tweak formatting in `README.md`
+* Change: Reduce number of 'Tags' in `readme.txt`
 * Unit tests:
     * Hardening: Prevent direct web access to `bootstrap.php`
     * Allow tests to run against current versions of WordPress

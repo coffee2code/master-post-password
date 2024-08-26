@@ -1,7 +1,7 @@
 === Master Post Password ===
 Contributors: coffee2code
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6ARCFJ9TX3522
-Tags: post password, password, post, passworded, privacy, coffee2code
+Tags: post password, password, post, passworded, privacy
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.7
