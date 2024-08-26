@@ -81,7 +81,7 @@ Assuming those are true, have you set a master post password via the `C2C_MASTER
 
 = Does this plugin include unit tests? =
 
-Yes.
+Yes. The tests are not packaged in the release .zip file or included in plugins.svn.wordpress.org, but can be found in the [plugin's GitHub repository](https://github.com/coffee2code/master-post-password/).
 
 = Is this plugin localizable? =
 
