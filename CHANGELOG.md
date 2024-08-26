@@ -3,6 +3,7 @@
 ## _(in-progress)_
 * Change: Note compatibility through WP 6.6+
 * Change: Update copyright date (2024)
+* New: Add `.gitignore` file
 
 ## 1.3.7 _(2023-08-08)_
 * Change: Note compatibility through WP 6.3+
