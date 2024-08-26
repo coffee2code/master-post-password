@@ -5,6 +5,7 @@
 * Change: Update copyright date (2024)
 * New: Add `.gitignore` file
 * Change: Remove development and testing-related files from release packaging
+* Change: Tweak formatting in `README.md`
 * Unit tests:
     * Allow tests to run against current versions of WordPress
     * New: Add `composer.json` for PHPUnit Polyfill dependency
