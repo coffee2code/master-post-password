@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.7
 Tested up to: 6.7
-Stable tag: 1.3.7
+Stable tag: 1.3.8
 
 Define a master post password that works for all passworded posts, while permitting the original post passwords to also work.
 
@@ -94,6 +94,21 @@ Yes. This plugin does not collect, store, or disseminate any information from an
 
 == Changelog ==
 
+= 1.3.8 (2025-01-12) =
+* Change: Prevent translations from containing unintended markup
+* Change: Note compatibility through WP 6.7+
+* Change: Update copyright date (2025)
+* New: Add `.gitignore` file
+* Change: Remove development and testing-related files from release packaging
+* Change: Tweak formatting in `README.md`
+* Unit tests:
+    * Hardening: Prevent direct web access to `bootstrap.php`
+    * Allow tests to run against current versions of WordPress
+    * New: Add `composer.json` for PHPUnit Polyfill dependency
+    * Change: In bootstrap, store path to plugin directory in a constant
+    * Change: Prevent PHP warnings due to missing core-related generated files
+* Change: Add more potential TODO items and reformat some existing entries
+
 = 1.3.7 (2023-08-05) =
 * Change: Note compatibility through WP 6.3+
 * Change: Update copyright date (2023)
@@ -110,16 +125,13 @@ Yes. This plugin does not collect, store, or disseminate any information from an
     * Change: In bootstrap, add backcompat for PHPUnit pre-v6.0
 * New: Add a couple more possible TODO items
 
-= 1.3.5 (2021-04-20) =
-* Change: Note compatibility through WP 5.7+
-* Change: Tweak some documentation formatting
-* Change: Update copyright date (2021)
-* New: Add a few more possible TODO items
-
 _Full changelog is available in [CHANGELOG.md](https://github.com/coffee2code/master-post-password/blob/master/CHANGELOG.md)._
 
 
 == Upgrade Notice ==
+
+= 1.3.8 =
+Trivial update: prevented translations from containing unintended markup, noted compatibility through WP 6.7+, removed unit tests from release packaging, and updated copyright date (2025)
 
 = 1.3.7 =
 Trivial update: noted compatibility through WP 6.3+ and updated copyright date (2023)
