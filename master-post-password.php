@@ -89,9 +89,6 @@ class c2c_MasterPostPassword {
 	 * @access private
 	 */
 	private function __construct() {
-		// Load textdomain.
-		load_plugin_textdomain( 'master-post-password' );
-
 		add_filter( 'post_password_required', array( $this, 'post_password_required' ), 10, 2 );
 
 		if ( ! defined( 'C2C_MASTER_POST_PASSWORD' ) || ! C2C_MASTER_POST_PASSWORD ) {
