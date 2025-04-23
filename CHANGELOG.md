@@ -2,6 +2,7 @@
 
 ## _(in-progress)_
 * Change: Discontinue unnecessary explicit loading of textdomain
+* Change: Specify sanitization callback for registered setting
 * Change: Note compatibility through WP 6.8+
 * Change: Note compatibility through PHP 8.3+
 * Unit tests:
