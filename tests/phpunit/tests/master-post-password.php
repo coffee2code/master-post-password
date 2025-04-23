@@ -22,6 +22,9 @@ class Master_Post_Password_Test extends WP_UnitTestCase {
 
 		unset( $GLOBALS['wp_settings_fields'] );
 		unset( $GLOBALS['wp_registered_settings'] );
+
+		wp_dequeue_script( 'master-post-password-toggle' );
+		wp_deregister_script( 'master-post-password-toggle' );
 	}
 
 
@@ -112,13 +115,42 @@ class Master_Post_Password_Test extends WP_UnitTestCase {
 	}
 
 	/*
+	 * admin_enqueue_scripts()
+	 */
+
+	public function test_admin_enqueue_scripts_enqueues_for_reading_options() {
+		$this->obj->admin_enqueue_scripts( 'options-reading.php' );
+
+		$this->assertTrue( wp_script_is( 'master-post-password-toggle', 'registered' ) );
+		$this->assertTrue( wp_script_is( 'master-post-password-toggle', 'enqueued' ) );
+
+		global $wp_scripts;
+		$script = $wp_scripts->registered['master-post-password-toggle'];
+
+		$this->assertEquals( '1.0.1', $script->ver );
+		$this->assertTrue( $script->extra['data'] !== [] );
+	}
+
+	public function test_admin_enqueue_scripts_does_not_enqueue_outside_reading_options() {
+		$this->obj->admin_enqueue_scripts( 'plugins.php' );
+
+		$this->assertFalse( wp_script_is( 'master-post-password-toggle', 'enqueued' ) );
+		$this->assertFalse( wp_script_is( 'master-post-password-toggle', 'registered' ) );
+	}
+
+	/*
 	 * display_option()
 	 */
 
 	public function test_display_option() {
 		$password = $this->obj->set_master_password( 'somepassword' );
 		$expected = <<<HTML
-<input type="text" name="c2c_master_post_password" value="somepassword"/>
+<div id="master-post-password-field">
+<input type="password" name="c2c_master_post_password" value="somepassword" aria-describedby="pass-strength-result" />
+<button type="button" class="button wp-hide-pw hide-if-no-js" data-toggle="0" aria-label="Show password">
+<span class="dashicons dashicons-visibility"></span>
+<span class="text">Show</span>
+</button></div>
 <p class="description">A password that can be used to access any passworded post.</p>
 <p class="description"><strong>NOTE:</strong> Each passworded post's original post password will continue to work as well.</p>
 HTML;
@@ -141,7 +173,12 @@ HTML;
 		}, 10, 3 );
 		$password = $this->obj->set_master_password( 'somepassword' );
 		$expected = <<<HTML
-<input type="text" name="c2c_master_post_password" value="somepassword"/>
+<div id="master-post-password-field">
+<input type="password" name="c2c_master_post_password" value="somepassword" aria-describedby="pass-strength-result" />
+<button type="button" class="button wp-hide-pw hide-if-no-js" data-toggle="0" aria-label="Show password">
+<span class="dashicons dashicons-visibility"></span>
+<span class="text">Show</span>
+</button></div>
 <p class="description">A &lt;strong&gt;password&lt;/strong&gt; that can be used to access any passworded post.</p>
 <p class="description"><strong>NOTE:</strong> Each passworded post's original alert('Danger');post password will continue to work as well.</p>
 HTML;

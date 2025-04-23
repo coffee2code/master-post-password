@@ -1,6 +1,7 @@
 # Changelog
 
 ## _(in-progress)_
+* New: Hide password via password input field, but allow its display to be toggled
 * Change: Add translation context for label of setting field
 * Change: Discontinue unnecessary explicit loading of textdomain
 * Change: Specify sanitization callback for registered setting

@@ -116,6 +116,40 @@ class c2c_MasterPostPassword {
 			array( $this, 'display_option' ),
 			'reading'
 		);
+
+		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
+	}
+
+	/**
+	 * Enqueues admin scripts.
+	 *
+	 * @since 1.4
+	 *
+	 * @param string $hook_suffix The current admin page.
+	 */
+	public function admin_enqueue_scripts( $hook_suffix ) {
+		if ( 'options-reading.php' !== $hook_suffix ) {
+			return;
+		}
+
+		$script_name = 'master-post-password-toggle';
+
+		wp_register_script(
+			$script_name,
+			plugins_url( 'assets/js/password-toggle.js', __FILE__ ),
+			array(),
+			'1.0.1',
+			true
+		);
+
+		wp_localize_script( $script_name, 'wpMasterPostPasswordToggle', array(
+			'show'      => _x( 'Show', 'password toggle', 'master-post-password' ),
+			'hide'      => _x( 'Hide', 'password toggle', 'master-post-password' ),
+			'showLabel' => esc_attr__( 'Show password', 'master-post-password' ),
+			'hideLabel' => esc_attr__( 'Hide password', 'master-post-password' ),
+		) );
+
+		wp_enqueue_script( $script_name );
 	}
 
 	/**
@@ -124,7 +158,19 @@ class c2c_MasterPostPassword {
 	 * @param array $args
 	 */
 	public function display_option( $args ) {
-		echo '<input type="text" name="' . esc_attr( self::$setting_name ) . '" value="' . esc_attr( $this->get_master_password() ) . '"/>' . "\n";
+		echo '<div id="master-post-password-field">' . "\n";
+		echo sprintf(
+			'<input type="password" name="%s" value="%s" aria-describedby="pass-strength-result" />' . "\n",
+			esc_attr( self::$setting_name ),
+			esc_attr( $this->get_master_password() )
+		);
+		echo sprintf(
+			'<button type="button" class="button wp-hide-pw hide-if-no-js" data-toggle="0" aria-label="%s">' . "\n",
+			esc_attr__( 'Show password', 'master-post-password' )
+		);
+		echo '<span class="dashicons dashicons-visibility"></span>' . "\n";
+		echo '<span class="text">' . esc_html__( 'Show', 'master-post-password' ) . '</span>' . "\n";
+		echo '</button></div>'. "\n";
 		echo '<p class="description">' . esc_html__( 'A password that can be used to access any passworded post.', 'master-post-password' ) . "</p>\n";
 		echo '<p class="description">'
 			. wp_kses( __( "<strong>NOTE:</strong> Each passworded post's original post password will continue to work as well.", 'master-post-password' ), [ 'strong' => [] ] )
