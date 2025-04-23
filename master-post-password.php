@@ -203,6 +203,7 @@ class c2c_MasterPostPassword {
 
 		$hasher = new PasswordHash( 8, true );
 
+		// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- This is an exact copy of something core is doing and must be identially handled here. Value is not being output or stored.
 		$hash = wp_unslash( $_COOKIE[ 'wp-postpass_' . COOKIEHASH ] );
 		if ( 0 !== strpos( $hash, '$P$B' ) ) {
 			return false;
