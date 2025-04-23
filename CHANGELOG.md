@@ -2,6 +2,7 @@
 
 ## _(in-progress)_
 * Change: Note compatibility through WP 6.8+
+* Change: Note compatibility through PHP 8.3+
 
 ## 1.3.8 _(2025-01-12)_
 * Change: Prevent translations from containing unintended markup
