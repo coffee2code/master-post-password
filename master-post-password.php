@@ -107,7 +107,7 @@ class c2c_MasterPostPassword {
 
 		register_setting( 'reading', self::$setting_name, array(
 			'type'              => 'string',
-			'sanitize_callback' => array( __CLASS__, 'sanitize_text_field' ),
+			'sanitize_callback' => 'sanitize_text_field',
 			'default'           => '',
 		) );
 		add_settings_field( self::$setting_name, __( 'Master Post Password', 'master-post-password' ), array( $this, 'display_option' ), 'reading' );
