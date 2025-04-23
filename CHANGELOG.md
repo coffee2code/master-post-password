@@ -5,6 +5,7 @@
 * Change: Note compatibility through PHP 8.3+
 * Unit tests:
     * Change: Explicitly define return type for overridden methods
+    * Change: Explicitly define class variable to prevent PHP deprecation notice
 
 ## 1.3.8 _(2025-01-12)_
 * Change: Prevent translations from containing unintended markup

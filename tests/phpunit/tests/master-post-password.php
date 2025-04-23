@@ -4,6 +4,8 @@ defined( 'ABSPATH' ) or die();
 
 class Master_Post_Password_Test extends WP_UnitTestCase {
 
+	protected $obj;
+
 	private static $master_pw_via_constant = 'constantmasterpw';
 
 	public function setUp(): void {
