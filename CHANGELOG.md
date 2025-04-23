@@ -11,6 +11,7 @@
 * Unit tests:
     * Change: Explicitly define return type for overridden methods
     * Change: Explicitly define class variable to prevent PHP deprecation notice
+* New: Add some potential TODO items
 
 ## 1.3.8 _(2025-01-12)_
 * Change: Prevent translations from containing unintended markup

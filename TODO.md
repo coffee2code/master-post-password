@@ -11,6 +11,14 @@ The following list comprises ideas, suggestions, and known issues, all of which 
   * Could benefit from some way of leaving a note for context about given password e.g. "pw given to john", "pw given to the 2020 training class".
     * Each password could be an input with associated optional comment input field.
     * Or in the texarea approach, could separate password from comment, e.g. "this-is-the-password # And this is comment" or "universal-password2 // Note about password"
+  * If entered and shown discretely, then could also have a "Share to/with" button.
+    * Makes that particular password available to a given user account, who can see if in their profile (and maybe alerted by email that such a password was shared with them and how to access it)
+    * Can track who a password was shared with.
+      * Each password can show a list of users for whom the password was shared with
+      * If user is deleted or demoted, the admin can be warned that the password may still be known by the person
+      * Admin can see who would be affected by removal or changing of the password
+      * Admin can replace the password, and users who would be affected would have the new password available in their profile (+ optional email)
+    * Then again, this is going afield of this plugin's scope and venturing in a round about way into post access control whereby users can just selectively be given access and post passwords need not be involved.
 * Support custom per-user master post passwords
   * Only admins can set it (via the user's profile page?).
   * The field should (optionally?) appear in their profile for users who have a passsword defined, obscured by default with ability to reveal password.
@@ -28,5 +36,13 @@ The following list comprises ideas, suggestions, and known issues, all of which 
   * Update all references in docs
   * Back-compat for rename of constant and setting
 * If a master post password is set via constant, still add a placeholder setting of sorts (which doesn't actually allow input) to indicate a password was set via constant and thus cannot be set via settings.
+* Add setting to disable existing post passwords, making the master password the only password that will work.
+* Hash password?
+  * This precludes being able to show users/admins what the existing password is. Those security-minded enough can just use the constant.
+  * WordPress doesn't hash post passwords.
+  * Could offer it as an option.
+    * If already hashed at the time, then choosing to not hash it should force the password to be reset (or re-entered).
+    * If not hashed at the time, the existing password can be hashed.
+    * Complicates things if multiple or per-user master passwords are implemented
 
 Feel free to make your own suggestions or champion for something already on the list (via the [plugin's support forum on WordPress.org](https://wordpress.org/support/plugin/master-post-password/) or on [GitHub](https://github.com/coffee2code/master-post-password/) as an issue or PR).
