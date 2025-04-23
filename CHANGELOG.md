@@ -1,5 +1,8 @@
 # Changelog
 
+## _(in-progress)_
+* Change: Note compatibility through WP 6.8+
+
 ## 1.3.8 _(2025-01-12)_
 * Change: Prevent translations from containing unintended markup
 * Change: Note compatibility through WP 6.7+
