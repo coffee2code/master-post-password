@@ -110,7 +110,12 @@ class c2c_MasterPostPassword {
 			'sanitize_callback' => 'sanitize_text_field',
 			'default'           => '',
 		) );
-		add_settings_field( self::$setting_name, __( 'Master Post Password', 'master-post-password' ), array( $this, 'display_option' ), 'reading' );
+		add_settings_field(
+			self::$setting_name,
+			_x( 'Master Post Password', 'Label for the setting to define a master post password', 'master-post-password' ),
+			array( $this, 'display_option' ),
+			'reading'
+		);
 	}
 
 	/**
