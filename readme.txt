@@ -71,7 +71,9 @@ Other than the obvious (the master post password has a new value), all existing 
 
 = Is the master post password stored securely? =
 
-No. As is the case for post passwords in WordPress, the master post password is stored in the database as plaintext. That is, unless the master post password is set by a constant, in which case it is never stored in the database and only in the given .php file (typically wp-config.php, where other site passwords are defined).
+No. As is the case for post passwords in WordPress, the master post password is stored in the database as plaintext. That is unless the master post password is set by a constant, in which case it is never stored in the database and only in the given .php file (typically `wp-config.php`, where other site passwords are defined).
+
+The master post password _is_ shown using a password input field, so it is not visibly exposed to those who may be looking over your should or if you're doing a screenshare while navigating the admin. But you are encouraged to use the constant if you wish to keep the password as private and secure as possible.
 
 = Why can't I see the setting on the "Reading Settings" admin page? =
 
