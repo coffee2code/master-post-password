@@ -1,6 +1,6 @@
 # Changelog
 
-## _(in-progress)_
+## 1.4 _(2025-04-23)_
 * New: Hide password via password input field, but allow its display to be toggled
 * Change: Add translation context for label of setting field
 * Change: Discontinue unnecessary explicit loading of textdomain

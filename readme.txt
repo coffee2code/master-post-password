@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.7
 Tested up to: 6.8
-Stable tag: 1.3.8
+Stable tag: 1.4
 
 Define a master post password that works for all passworded posts, while permitting the original post passwords to also work.
 
@@ -96,6 +96,19 @@ Yes. This plugin does not collect, store, or disseminate any information from an
 
 == Changelog ==
 
+= 1.4 (2025-04-23) =
+* New: Hide password via password input field, but allow its display to be toggled
+* Change: Add translation context for label of setting field
+* Change: Discontinue unnecessary explicit loading of textdomain
+* Change: Specify sanitization callback for registered setting
+* Change: Ignore unnecessary PHPCS complaint
+* Change: Note compatibility through WP 6.8+
+* Change: Note compatibility through PHP 8.3+
+* Unit tests:
+    * Change: Explicitly define return type for overridden methods
+    * Change: Explicitly define class variable to prevent PHP deprecation notice
+* New: Add some potential TODO items
+
 = 1.3.8 (2025-01-12) =
 * Change: Prevent translations from containing unintended markup
 * Change: Note compatibility through WP 6.7+
@@ -115,22 +128,13 @@ Yes. This plugin does not collect, store, or disseminate any information from an
 * Change: Note compatibility through WP 6.3+
 * Change: Update copyright date (2023)
 
-= 1.3.6 (2021-10-04) =
-* Change: Note compatibility through WP 5.8+
-* Change: Tweak installation instruction
-* Unit tests:
-    * Change: Restructure unit test directories
-        * Change: Move `phpunit/` into `tests/`
-        * Change: Move `phpunit/bin` into `tests/`
-    * Change: Remove 'test-' prefix from unit test file
-    * Change: In bootstrap, store path to plugin file constant
-    * Change: In bootstrap, add backcompat for PHPUnit pre-v6.0
-* New: Add a couple more possible TODO items
-
 _Full changelog is available in [CHANGELOG.md](https://github.com/coffee2code/master-post-password/blob/master/CHANGELOG.md)._
 
 
 == Upgrade Notice ==
+
+= 1.4 =
+Minor update: converted input field to a password input with toggle to show/hide the password, sanitized submitted password value, noted compatibility through WP 6.8+ and PHP 8.3+, and updated copyright date (2025)
 
 = 1.3.8 =
 Trivial update: prevented translations from containing unintended markup, noted compatibility through WP 6.7+, removed unit tests from release packaging, and updated copyright date (2025)
