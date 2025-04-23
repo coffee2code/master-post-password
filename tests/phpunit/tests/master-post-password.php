@@ -6,13 +6,13 @@ class Master_Post_Password_Test extends WP_UnitTestCase {
 
 	private static $master_pw_via_constant = 'constantmasterpw';
 
-	public function setUp() {
+	public function setUp(): void {
 		parent::setUp();
 
 		$this->obj = c2c_MasterPostPassword::get_instance();
 	}
 
-	public function tearDown() {
+	public function tearDown(): void {
 		wp_reset_postdata();
 		unset( $GLOBALS['_COOKIE'] );
 		parent::tearDown();
